@@ -13,6 +13,8 @@ public class PickupObject : MonoBehaviour {
 	
 	void Start () {
         mainCamera = GameObject.FindWithTag("MainCamera");
+	   
+	    
 	}
 	
 	
@@ -45,7 +47,6 @@ public class PickupObject : MonoBehaviour {
             int x = Screen.width / 2;
             int y = Screen.height / 2;
 
-
             Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(new Vector3(x, y));
             RaycastHit hit;
             if(Physics.Raycast(ray, out hit))
@@ -55,6 +56,8 @@ public class PickupObject : MonoBehaviour {
                 //    Debug.Log("hit it");
                 //    Debug.Log(Vector3.Distance(hit.transform.position, mainCamera.transform.position));
                 //}
+                
+                Debug.Log(hit.collider);
 
                 Pickupable pickupable = hit.collider.GetComponent<Pickupable>();
                 if(pickupable != null && Vector3.Distance(pickupable.gameObject.transform.position, mainCamera.transform.position) < pickupDistance)
