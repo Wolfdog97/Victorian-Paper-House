@@ -51,12 +51,6 @@ public class PickupObject : MonoBehaviour {
             RaycastHit hit;
             if(Physics.Raycast(ray, out hit))
             {
-                //if (hit.transform.gameObject.tag == "Star")
-                //{
-                //    Debug.Log("hit it");
-                //    Debug.Log(Vector3.Distance(hit.transform.position, mainCamera.transform.position));
-                //}
-                
                 Debug.Log(hit.collider);
 
                 Pickupable pickupable = hit.collider.GetComponent<Pickupable>();
