@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.UIElements;
 using UnityEngine.Serialization;
 using UnityStandardAssets.Characters.FirstPerson;
 
 public class InspectObject : MonoBehaviour {
 
-	GameObject mainCamera;
+	public Camera mainCamera;
     GameObject carriedObject;
 
     public RigidbodyFirstPersonController rigidbodyFirstPersonController;
@@ -14,6 +15,7 @@ public class InspectObject : MonoBehaviour {
 
     public Transform holdingGuide;
     private Transform tempTrans;
+    private Vector3 mousePos;
     
     public bool isHolding;
     public bool holdingMode;
@@ -23,13 +25,14 @@ public class InspectObject : MonoBehaviour {
     public float holdingDistance = 2;
     public float smoothing = 10;
 
-    private Quaternion inpectRot;
+    private Quaternion inspectCameraRot;
+    private Quaternion inspectItemRot;
     public float rotSmoothing = 5;
-
-
-	
-	void Start () {
-        mainCamera = GameObject.FindWithTag("MainCamera");
+    public float rotSpeed = 8;
+    
+	void Start ()
+	{
+	   
 	}
 	
 	
@@ -46,10 +49,10 @@ public class InspectObject : MonoBehaviour {
 
 	    if (isHolding && holdingMode)
 	    {
-	        HoldItem(carriedObject);
-	        
-	        
+	        HoldItem(carriedObject); 
 	    }
+	    
+	    Debug.Log(rigidbodyFirstPersonController.mouseLook.lockCursor);
 	}
     
     void Inspect(GameObject obj)
@@ -62,20 +65,32 @@ public class InspectObject : MonoBehaviour {
             // Lock MC
             rigidbodyFirstPersonController.enabled = false;
             
-            inpectRot *= Quaternion.Euler(0,0,0);
-            mainCamera.transform.rotation = inpectRot;
-            //mainCamera.transform.rotation = Quaternion.Slerp(mainCamera.transform.rotation, inpectRot, Time.deltaTime * rotSmoothing);
+            // Unlock Mouse cursor
+            rigidbodyFirstPersonController.mouseLook.SetCursorLock(false);
+            
+            
+            inspectCameraRot *= Quaternion.Euler(0,0,0);
+            mainCamera.transform.rotation = inspectCameraRot;
+            //mainCamera.transform.rotation = Quaternion.Slerp(mainCamera.transform.rotation, inspectCameraRot, Time.deltaTime * rotSmoothing);
+            
+            inspectItemRot *= Quaternion.Euler(0,0,0);
+            obj.transform.rotation = inspectItemRot;
+            
+            //Generate tags
             
             // Mode switching 
-
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                holdingMode = true;
+                HoldingMode();
+            }
+            if (Input.GetMouseButton(1))
+            {
+                RotateItem();
             }
         }   
     }
 
-
+    //(For rewrite) Action
     void Pickup()
     {
         if (Input.GetMouseButtonDown(0))
@@ -101,19 +116,25 @@ public class InspectObject : MonoBehaviour {
             }
         }
     }
-
+    
+    //(For rewrite) State
     void HoldItem(GameObject item)
     {
         if (!rigidbodyFirstPersonController.enabled)
         {
             rigidbodyFirstPersonController.enabled = true;
+            rigidbodyFirstPersonController.mouseLook.SetCursorLock(true);
+
         }
         
         if (item != null)
         {
             item.transform.position = Vector3.Lerp(item.transform.position,
                 holdingGuide.position + mainCamera.transform.forward * holdingDistance, Time.deltaTime * smoothing);
-            item.transform.rotation = holdingGuide.rotation;
+            
+            inspectItemRot *= Quaternion.Euler(0,0,0);
+            item.transform.rotation = inspectItemRot;
+            
         }
     }
 
@@ -132,11 +153,39 @@ public class InspectObject : MonoBehaviour {
             isHolding = false;
             holdingMode = false;
             
+            rigidbodyFirstPersonController.mouseLook.SetCursorLock(true);
             rigidbodyFirstPersonController.enabled = true;
 
             carriedObject.transform.parent = null;
             carriedObject.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             carriedObject = null;
         }
+    }
+
+    void HoldingMode()
+    {
+        holdingMode = true;
+    }
+
+    void RotateItem()
+    {
+        Debug.Log("Rotate Is Running");
+            
+        // Get Mouse position
+        mousePos = Input.mousePosition;
+        
+        // Adjust mouse z position
+        mousePos.z = mainCamera.transform.position.y - carriedObject.transform.position.y;
+        
+        //Get a world position for the mouse
+        Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(mousePos);
+        
+        // Get the angle to rotate and rotate item
+        float angle = -Mathf.Atan2(carriedObject.transform.position.z - mouseWorldPos.z, carriedObject.transform.position.x - mouseWorldPos.x) *
+                      Mathf.Rad2Deg;
+        carriedObject.transform.rotation =
+            Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, angle, 0), rotSpeed * Time.deltaTime);
+        // Some limited rotation
+        
     }
 }
