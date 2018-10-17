@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.Experimental.UIElements;
 using UnityEngine.Serialization;
 using UnityStandardAssets.Characters.FirstPerson;
+/* Missing or Broken:
+ * Rotating Objects while Inspecting
+ * Selecting tabs
+ */
 
 public class InspectObject : MonoBehaviour {
 
@@ -167,6 +171,7 @@ public class InspectObject : MonoBehaviour {
         holdingMode = true;
     }
 
+    // Broken
     void RotateItem()
     {
         Debug.Log("Rotate Is Running");
