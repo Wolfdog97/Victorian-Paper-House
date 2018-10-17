@@ -73,8 +73,8 @@ public class InspectObject : MonoBehaviour {
             mainCamera.transform.rotation = inspectCameraRot;
             //mainCamera.transform.rotation = Quaternion.Slerp(mainCamera.transform.rotation, inspectCameraRot, Time.deltaTime * rotSmoothing);
             
-            inspectItemRot *= Quaternion.Euler(0,0,0);
-            obj.transform.rotation = inspectItemRot;
+            //inspectItemRot *= Quaternion.Euler(0,0,0);
+            //obj.transform.rotation = inspectItemRot;
             
             //Generate tags
             
