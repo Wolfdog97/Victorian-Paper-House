@@ -5,8 +5,8 @@ using UnityEngine.Experimental.UIElements;
 using UnityEngine.Serialization;
 using UnityStandardAssets.Characters.FirstPerson;
 /* Missing or Broken:
- * Rotating Objects while Inspecting
  * Selecting tabs
+ * get delta of mouse pos and add that to obj rotation 
  */
 
 public class InspectObject : MonoBehaviour {
@@ -63,24 +63,30 @@ public class InspectObject : MonoBehaviour {
     {
         if(obj != null && !holdingMode)
         {
+            //Move the object into position
             obj.transform.position = Vector3.Lerp(obj.transform.position,
             mainCamera.transform.position + mainCamera.transform.forward * inspectDistance, Time.deltaTime * smoothing);
             
-            // Lock MC
+            // Lock Mouse Look
             rigidbodyFirstPersonController.enabled = false;
             
             // Unlock Mouse cursor
             rigidbodyFirstPersonController.mouseLook.SetCursorLock(false);
             
-            
+            //Setting the look rotation of the camera during while Inspecting 
             inspectCameraRot *= Quaternion.Euler(0,0,0);
-            mainCamera.transform.rotation = inspectCameraRot;
-            //mainCamera.transform.rotation = Quaternion.Slerp(mainCamera.transform.rotation, inspectCameraRot, Time.deltaTime * rotSmoothing);
+            //mainCamera.transform.rotation = inspectCameraRot;
+            mainCamera.transform.localEulerAngles = new Vector3(Mathf.Lerp(mainCamera.transform.localEulerAngles.x, 0, Time.deltaTime * rotSmoothing), 
+                mainCamera.transform.localEulerAngles.y, mainCamera.transform.localEulerAngles.z);
+            //Quaternion.Lerp(mainCamera.transform.rotation,Quaternion.identity, Time.deltaTime * rotSmoothing);
             
-            //inspectItemRot *= Quaternion.Euler(0,0,0);
+            //Set Starting Item Rotation 
             //obj.transform.rotation = inspectItemRot;
+            //inspectItemRot *= Quaternion.Euler(0,0,0);
             
-            //Generate tags
+            
+            
+            //Tell prop to Instantiate item option tags
             
             // Mode switching 
             if (Input.GetKeyDown(KeyCode.Q))
@@ -174,23 +180,11 @@ public class InspectObject : MonoBehaviour {
     // Broken
     void RotateItem()
     {
-        Debug.Log("Rotate Is Running");
-            
+        // Setting Camera Rotation to Mouse Position     
+        Vector3 mouseDelt = mousePos - Input.mousePosition;
+        carriedObject.transform.Rotate(new Vector3(mouseDelt.y, mouseDelt.x, 0));
+       
         // Get Mouse position
         mousePos = Input.mousePosition;
-        
-        // Adjust mouse z position
-        mousePos.z = mainCamera.transform.position.y - carriedObject.transform.position.y;
-        
-        //Get a world position for the mouse
-        Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(mousePos);
-        
-        // Get the angle to rotate and rotate item
-        float angle = -Mathf.Atan2(carriedObject.transform.position.z - mouseWorldPos.z, carriedObject.transform.position.x - mouseWorldPos.x) *
-                      Mathf.Rad2Deg;
-        carriedObject.transform.rotation =
-            Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, angle, 0), rotSpeed * Time.deltaTime);
-        // Some limited rotation
-        
     }
 }
