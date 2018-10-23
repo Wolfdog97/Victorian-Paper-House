@@ -11,101 +11,76 @@ using UnityStandardAssets.Characters.FirstPerson;
  * Selecting tabs
  */
 
-public class InspectObject : MonoBehaviour {
+public class InspectObject : MonoBehaviour
+{
 
+    [Header("Keys: ")]
+    [Space(2)]
+    public KeyCode holdItemKey = KeyCode.Alpha1;
+    public KeyCode putBackKey = KeyCode.Alpha2;
+    public KeyCode swapItemKey = KeyCode.Alpha3;
+    [Space(10)]
+    
 	public Camera mainCamera;
     GameObject carriedObject;
 
     public RigidbodyFirstPersonController rigidbodyFirstPersonController;
 
     public Transform holdingGuide;
+    [Space(10)]
     
-    private Transform tempTrans;
-    private Vector3 _mousePos;
     
+    // Bools
+    [HideInInspector]
     public bool isHolding;
+    [HideInInspector]
     public bool holdingMode;
+    private bool _isInspecting;
 
-    private bool _inspecting;
+    
+    [Header("Distance & Smoothing: ")]
+    [Space(2)]
+    [Range(0f,3f)] public float holdingDistance = 2;
+    [Range(1f,20f)] public float smoothing = 10;
+    [Range(1f,20f)] public float rotSmoothing = 5;
 
-    public float inspectDistance = 1;
-    public float pickupDistance = 3;
-    public float holdingDistance = 2;
-    public float smoothing = 10;
-
+    float inspectDistance = 1;
+    float pickupDistance = 3;
+    
+    // Private Vars
+    private Transform tempTrans;
     private Quaternion _inspectCameraRot;
     private Quaternion _inspectItemRot;
-    
-    public float rotSmoothing = 5;
-    public float rotSpeed = 8;
-
-
     private Vector3 _objOriginalPos;
     private Vector3 _objOriginalRot;
+    private Vector3 _mousePos;
+    
+    // TO BE CHANGED!
+    [Header("Temp: ")]
+    [Space(2)]
+    public Sprite sprtToSwap;
+    public SpriteRenderer spriteRenderer;
     
 	
 	void Update () {
         if (isHolding)
         {
             Inspect(carriedObject);
-            checkDrop();
+            CheckDrop();
         }
         else
         {
-            Pickup();
+            PickupObject();
         }
 
 	    if (isHolding && holdingMode)
 	    {
 	        HoldItem(carriedObject); 
 	    }
-
-	    if (Input.GetKeyDown(KeyCode.P))
-	    {
-	        Debug.Log("In Update: " + _objOriginalPos);
-	        Debug.Log("In Update: " + _objOriginalRot);
-	    }
 	}
-    
-    void Inspect(GameObject obj)
-    {
-        if(obj != null && !holdingMode)
-        {
-            // Change bool
-            _inspecting = true;
-            
-            //Move the object into position
-            obj.transform.position = Vector3.Lerp(obj.transform.position,
-            mainCamera.transform.position + mainCamera.transform.forward * inspectDistance, Time.deltaTime * smoothing);
-            
-            // Lock Mouse Look
-            rigidbodyFirstPersonController.enabled = false;
-            
-            // Unlock Mouse cursor
-            rigidbodyFirstPersonController.mouseLook.SetCursorLock(false);
-            
-            //Setting the look rotation of the camera during while Inspecting 
-            _inspectCameraRot *= Quaternion.Euler(0,0,0);
-            
-            mainCamera.transform.localEulerAngles = new Vector3(Mathf.Lerp(mainCamera.transform.localEulerAngles.x, 0, Time.deltaTime * rotSmoothing), 
-                mainCamera.transform.localEulerAngles.y, mainCamera.transform.localEulerAngles.z);
-
-            //Tell prop to Instantiate item option tags
-            
-            // Mode switching 
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                HoldingMode();
-            }
-            if (Input.GetMouseButton(1))
-            {
-                RotateItem();
-            }
-        }   
-    }
-
-    //(For rewrite) Action
-    void Pickup()
+ 
+    //(REWRITE!) Picking up the item and entering "Inspection Mode"
+    public void PickupObject()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -119,7 +94,8 @@ public class InspectObject : MonoBehaviour {
                 Debug.Log(hit.collider);
 
                 Prop pickupable = hit.collider.GetComponent<Prop>();
-                if(pickupable != null && Vector3.Distance(pickupable.gameObject.transform.position, mainCamera.transform.position) < pickupDistance)
+                if(pickupable != null && 
+                   Vector3.Distance(pickupable.gameObject.transform.position, mainCamera.transform.position) < pickupDistance)
                 {
                     // Getting item original Location
                     _objOriginalPos = pickupable.originalPos;
@@ -128,26 +104,68 @@ public class InspectObject : MonoBehaviour {
                     
                     isHolding = true;
                     carriedObject = pickupable.gameObject;
+                    carriedObject.transform.parent = gameObject.transform;
                     pickupable.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                     
-                    carriedObject.transform.parent = gameObject.transform;
                     
-                    Debug.Log("After Pickup: " + _objOriginalPos);
-                    Debug.Log("After Pickup: " + _objOriginalRot);
+                    //Debug.Log("After PickupObject: " + _objOriginalPos);
+                    //Debug.Log("After PickupObject: " + _objOriginalRot);
                 }
             }
         }
     }
     
-    // Rewrite
-    void HoldItem(GameObject item)
+    public void Inspect(GameObject obj)
     {
+        if(obj != null && !holdingMode)
+        {
+            // Change bool
+            _isInspecting = true;
+            
+            //Move the object into position
+            obj.transform.position = Vector3.Lerp(obj.transform.position,
+                mainCamera.transform.position + mainCamera.transform.forward * inspectDistance, Time.deltaTime * smoothing);
+            
+            // Lock Mouse Look
+            rigidbodyFirstPersonController.enabled = false;
+            
+            // Unlock Mouse cursor
+            rigidbodyFirstPersonController.mouseLook.SetCursorLock(false);
+            
+            //Setting the look rotation of the camera during while Inspecting 
+            _inspectCameraRot *= Quaternion.Euler(0,0,0);
+            mainCamera.transform.localEulerAngles = new Vector3(Mathf.Lerp(mainCamera.transform.localEulerAngles.x, 0, Time.deltaTime * rotSmoothing), 
+                mainCamera.transform.localEulerAngles.y, mainCamera.transform.localEulerAngles.z);
+
+            //Tell prop to Instantiate item option tags
+            
+            // Mode switching 
+            if (Input.GetKeyDown(holdItemKey))
+            {
+                HoldingMode();
+            }
+            if (Input.GetMouseButton(1))
+            {
+                RotateItem();
+            }
+            if (Input.GetKeyDown(swapItemKey))
+            {
+                SwapObject();
+            }
+        }   
+    }
+    
+    // Rewrite
+    public void HoldItem(GameObject item)
+    {
+        // Unlock cursor and FP Character controller
         if (!rigidbodyFirstPersonController.enabled)
         {
             rigidbodyFirstPersonController.enabled = true;
             rigidbodyFirstPersonController.mouseLook.SetCursorLock(true);
         }
         
+        // Changing Item Position
         if (item != null)
         {
             item.transform.position = Vector3.Lerp(item.transform.position,
@@ -158,26 +176,26 @@ public class InspectObject : MonoBehaviour {
         }
     }
 
-    void checkDrop()
+    void CheckDrop()
     {
         if (Input.GetMouseButtonDown(0) && holdingMode)
         {
-            dropObject();
+            DropObject();
         }
         
-        if (Input.GetKeyDown(KeyCode.E) && _inspecting)
+        if (Input.GetKeyDown(putBackKey) && _isInspecting)
         {
             PutBackObj();
         }
     }
 
-    void dropObject()
+    public void DropObject()
     {
         if (carriedObject != null)
         {
             isHolding = false;
             holdingMode = false;
-            _inspecting = false;
+            _isInspecting = false;
             
             rigidbodyFirstPersonController.mouseLook.SetCursorLock(true);
             rigidbodyFirstPersonController.enabled = true;
@@ -190,19 +208,19 @@ public class InspectObject : MonoBehaviour {
         }
     }
 
-    void HoldingMode()
+    public void HoldingMode()
     {
         holdingMode = true;
-        _inspecting = false;
+        _isInspecting = false;
     }
 
-    void PutBackObj()
+    public void PutBackObj()
     {
         if (carriedObject != null)
         {
             isHolding = false;
             holdingMode = false;
-            _inspecting = false;
+            _isInspecting = false;
             
             rigidbodyFirstPersonController.mouseLook.SetCursorLock(true);
             rigidbodyFirstPersonController.enabled = true;
@@ -219,7 +237,7 @@ public class InspectObject : MonoBehaviour {
     }
 
     // Needs Work
-    void RotateItem()
+    private void RotateItem()
     {
         // Setting Camera Rotation to Mouse Position     
         Vector3 mouseDelt = _mousePos - Input.mousePosition;
@@ -227,5 +245,10 @@ public class InspectObject : MonoBehaviour {
        
         // Get Mouse position
         _mousePos = Input.mousePosition;
+    }
+
+    public void SwapObject()
+    {
+        spriteRenderer.sprite = sprtToSwap;
     }
 }
