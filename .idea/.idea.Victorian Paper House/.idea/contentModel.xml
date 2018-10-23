@@ -15,6 +15,7 @@
           <e p="Pickupable.cs" t="Include" />
           <e p="PickupObject.cs" t="Include" />
           <e p="Prop.cs" t="Include" />
+          <e p="SwapDress.cs" t="Include" />
         </e>
         <e p="Standard Assets" t="Include">
           <e p="Cameras" t="Include">
