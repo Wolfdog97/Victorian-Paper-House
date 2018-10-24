@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class Prop : Pickupable
 {
-
-	[HideInInspector]
-	public Vector3 originalPos;
-	[HideInInspector]
-	public Vector3 originalRot;
-
+	
+	[HideInInspector] public Vector3 originalPos;
+	[HideInInspector] public Vector3 originalRot;
+	[HideInInspector] public bool amPickedUp;
 	public bool printLoc = false;
-
 
 	private void Awake()
 	{
@@ -26,7 +23,11 @@ public class Prop : Pickupable
 			Debug.Log(name + "OG Pos: " + originalPos);
 			Debug.Log(name + "OG Rot: " + originalRot);
 		}
-		
+
+		if (amPickedUp)
+		{
+			Physics.IgnoreLayerCollision(10,11);
+		}
 	}
 	
 }

@@ -22,7 +22,7 @@ public class InspectObject : MonoBehaviour
     [Space(10)]
     
 	public Camera mainCamera;
-    GameObject carriedObject;
+    Prop carriedObject;
 
     public RigidbodyFirstPersonController rigidbodyFirstPersonController;
 
@@ -35,7 +35,9 @@ public class InspectObject : MonoBehaviour
     public bool isHolding;
     [HideInInspector]
     public bool holdingMode;
-    private bool _isInspecting;
+    
+    private bool _isInspecting = false;
+    private bool _isPlaceToPutBack = false;
 
     
     [Header("Distance & Smoothing: ")]
@@ -54,6 +56,13 @@ public class InspectObject : MonoBehaviour
     private Vector3 _objOriginalPos;
     private Vector3 _objOriginalRot;
     private Vector3 _mousePos;
+    
+    // Strings
+    [Header("GUI Text: ")] 
+    [Space(2)] 
+    public string putBackText = "Put Back";
+    public string placeHereText = "Place";
+    [Space(10)]
     
     // TO BE CHANGED!
     [Header("Temp: ")]
@@ -94,8 +103,10 @@ public class InspectObject : MonoBehaviour
                 Debug.Log(hit.collider);
 
                 Prop pickupable = hit.collider.GetComponent<Prop>();
+                
+                Debug.DrawRay(ray.origin, ray.direction * 100, Color.green); // Drawing ray
                 if(pickupable != null && 
-                   Vector3.Distance(pickupable.gameObject.transform.position, mainCamera.transform.position) < pickupDistance)
+                   Vector3.Distance(pickupable.transform.position, mainCamera.transform.position) < pickupDistance)
                 {
                     // Getting item original Location
                     _objOriginalPos = pickupable.originalPos;
@@ -103,11 +114,12 @@ public class InspectObject : MonoBehaviour
                     
                     
                     isHolding = true;
-                    carriedObject = pickupable.gameObject;
+                    carriedObject = pickupable;
                     carriedObject.transform.parent = gameObject.transform;
-                    pickupable.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                    
-                    
+                    pickupable.GetComponent<Rigidbody>().isKinematic = true;
+                    pickupable.amPickedUp = true;
+
+
                     //Debug.Log("After PickupObject: " + _objOriginalPos);
                     //Debug.Log("After PickupObject: " + _objOriginalRot);
                 }
@@ -115,7 +127,29 @@ public class InspectObject : MonoBehaviour
         }
     }
     
-    public void Inspect(GameObject obj)
+    public void TextOnRaycast()
+    {
+        int x = Screen.width / 2;
+        int y = Screen.height / 2;
+
+        Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(new Vector3(x,y));
+        RaycastHit _hit;
+
+        if (Physics.Raycast(ray, out _hit, pickupDistance))
+        {
+            _isPlaceToPutBack = true;
+        }
+    }
+
+    void OnGui()
+    {
+        if (_isPlaceToPutBack)
+        {
+            GUILayout.Label(putBackText);// Text for placing objects
+        }
+    }
+    
+    public void Inspect(Prop obj)
     {
         if(obj != null && !holdingMode)
         {
@@ -154,9 +188,9 @@ public class InspectObject : MonoBehaviour
             }
         }   
     }
-    
+
     // Rewrite
-    public void HoldItem(GameObject item)
+    public void HoldItem(Prop item)
     {
         // Unlock cursor and FP Character controller
         if (!rigidbodyFirstPersonController.enabled)
