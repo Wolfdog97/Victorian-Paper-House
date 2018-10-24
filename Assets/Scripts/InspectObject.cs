@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Experimental.UIElements;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
 /*
  * This Script is a mess! Rewrite needed!
@@ -19,10 +21,11 @@ public class InspectObject : MonoBehaviour
     public KeyCode holdItemKey = KeyCode.Alpha1;
     public KeyCode putBackKey = KeyCode.Alpha2;
     public KeyCode swapItemKey = KeyCode.Alpha3;
+    public KeyCode interactionKey = KeyCode.Alpha4;
     [Space(10)]
     
 	public Camera mainCamera;
-    Prop carriedObject;
+    private Prop carriedObject;
 
     public RigidbodyFirstPersonController rigidbodyFirstPersonController;
 
@@ -57,6 +60,10 @@ public class InspectObject : MonoBehaviour
     private Vector3 _objOriginalRot;
     private Vector3 _mousePos;
     
+    //Raycaster
+    private GraphicRaycaster _graphicRaycaster;
+    private PointerEventData _pointerEventData;
+    
     // Strings
     [Header("GUI Text: ")] 
     [Space(2)] 
@@ -69,6 +76,9 @@ public class InspectObject : MonoBehaviour
     [Space(2)]
     public Sprite sprtToSwap;
     public SpriteRenderer spriteRenderer;
+
+    public GameObject rugtoMove;
+    public Transform newRugLoc;
     
 	
 	void Update () {
@@ -86,6 +96,13 @@ public class InspectObject : MonoBehaviour
 	    {
 	        HoldItem(carriedObject); 
 	    }
+
+	    if (Input.GetKeyDown(interactionKey))
+	    {
+	        moveObject();
+	    }
+	    
+	    //TextOnRaycast();
 	}
  
     //(REWRITE!) Picking up the item and entering "Inspection Mode"
@@ -127,6 +144,7 @@ public class InspectObject : MonoBehaviour
         }
     }
     
+    // Not implemented
     public void TextOnRaycast()
     {
         int x = Screen.width / 2;
@@ -135,12 +153,23 @@ public class InspectObject : MonoBehaviour
         Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(new Vector3(x,y));
         RaycastHit _hit;
 
+        Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow); // Drawing ray
         if (Physics.Raycast(ray, out _hit, pickupDistance))
         {
-            _isPlaceToPutBack = true;
+            
+            if (_hit.collider.gameObject.CompareTag("Target"))
+            {
+                _isPlaceToPutBack = true;
+            }
+            else
+            {
+                Debug.Log("Nothing");
+            }
+            
         }
     }
 
+    // Not implemented
     void OnGui()
     {
         if (_isPlaceToPutBack)
@@ -284,5 +313,10 @@ public class InspectObject : MonoBehaviour
     public void SwapObject()
     {
         spriteRenderer.sprite = sprtToSwap;
+    }
+
+    public void moveObject()
+    {
+        rugtoMove.transform.position = newRugLoc.transform.position;
     }
 }

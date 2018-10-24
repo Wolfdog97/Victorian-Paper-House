@@ -7,6 +7,8 @@ using System.IO;
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null;
+    
+    public KeyCode restartKey = KeyCode.R;
 
 	// Use this for initialization
 	void Start () {
@@ -19,6 +21,14 @@ public class GameManager : MonoBehaviour {
         {
             Destroy(gameObject);
             return;
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(restartKey))
+        {
+            RestartGame();
         }
     }
 

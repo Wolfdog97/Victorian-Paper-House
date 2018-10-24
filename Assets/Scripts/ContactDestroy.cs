@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ContactDestroy : MonoBehaviour
 {
-	private PickupObject pickup;
+	private InspectObject pickup;
 	public GameObject player;
 
 	private void Start()
 	{
-		pickup = player.GetComponent<PickupObject>();
+		pickup = player.GetComponent<InspectObject>();
 	}
 
 	private void OnTriggerEnter(Collider col)
@@ -20,7 +20,7 @@ public class ContactDestroy : MonoBehaviour
 			Debug.Log(col.gameObject.name);
 			Destroy(col.gameObject);
 
-			pickup.carrying = false;
+			pickup.DropObject();
 		}
 			
 	}
