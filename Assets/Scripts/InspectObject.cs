@@ -106,6 +106,7 @@ public class InspectObject : MonoBehaviour
 	}
  
     //(REWRITE!) Picking up the item and entering "Inspection Mode"
+    // Note: Seperate shooting Raycast from PickupObject()
     public void PickupObject()
     {
         if (Input.GetMouseButtonDown(0))
@@ -114,7 +115,7 @@ public class InspectObject : MonoBehaviour
             int y = Screen.height / 2;
 
             Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(new Vector3(x, y));
-            RaycastHit hit;
+            RaycastHit hit = new RaycastHit();
             if(Physics.Raycast(ray, out hit))
             {
                 Debug.Log(hit.collider);
@@ -139,6 +140,13 @@ public class InspectObject : MonoBehaviour
 
                     //Debug.Log("After PickupObject: " + _objOriginalPos);
                     //Debug.Log("After PickupObject: " + _objOriginalRot);
+                }
+                
+                // Temp
+                
+                if (hit.Equals(gameObject.CompareTag("Target")))
+                {
+                    moveObject();
                 }
             }
         }
@@ -299,7 +307,11 @@ public class InspectObject : MonoBehaviour
         }
     }
 
-    // Needs Work
+    // Temp  or Needs Work
+    
+    
+    
+    
     private void RotateItem()
     {
         // Setting Camera Rotation to Mouse Position     
@@ -317,6 +329,22 @@ public class InspectObject : MonoBehaviour
 
     public void moveObject()
     {
-        rugtoMove.transform.position = newRugLoc.transform.position;
+        int x = Screen.width / 2;
+        int y = Screen.height / 2;
+
+        Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(new Vector3(x, y));
+        RaycastHit hit = new RaycastHit();
+        if(Physics.Raycast(ray, out hit))
+        {
+            Debug.Log(hit.collider);
+                
+            Debug.DrawRay(ray.origin, ray.direction * 100, Color.green); // Drawing ray
+            // Temp
+            GameObject obj = hit.collider.gameObject;
+            if (obj.tag.Equals("Target"))
+            {
+                rugtoMove.transform.position = newRugLoc.position;
+            }
+        }
     }
 }
