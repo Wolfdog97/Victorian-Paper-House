@@ -12,7 +12,7 @@
     <session id="-115558223">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.134" value="1" />
           <entry key="project.open.time.50" value="1" />
           <entry key="project.open.time.64" value="1" />
@@ -25,24 +25,24 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="7557" />
+          <entry key="cs" value="7561" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="7557" />
+          <entry key="C#" value="7561" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="C#" value="27" />
-          <entry key="ShaderLab" value="1" />
+          <entry key="ShaderLab" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="cs" value="27" />
-          <entry key="shader" value="1" />
+          <entry key="shader" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -51,10 +51,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/InspectObject.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7774">
+            <state relative-caret-position="569">
               <caret line="345" column="66" selection-start-line="345" selection-start-column="66" selection-end-line="345" selection-end-column="66" />
               <folding>
                 <marker date="1540434174932" expanded="false" signature="6:258" ph="..." />
@@ -110,7 +110,7 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Prop.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="583">
@@ -195,14 +195,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/ContactDestroy.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+            <state relative-caret-position="368">
+              <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
               <folding>
-                <marker date="1540422453523" expanded="false" signature="6:78" ph="..." />
-                <marker date="1540422453523" expanded="true" signature="123:478" ph="{...}" />
-                <marker date="1540422453523" expanded="true" signature="206:261" ph="{...}" />
-                <marker date="1540422453523" expanded="true" signature="305:476" ph="{...}" />
-                <marker date="1540422453523" expanded="true" signature="373:469" ph="{...}" />
+                <marker date="1540484915662" expanded="false" signature="6:78" ph="..." />
+                <marker date="1540484915662" expanded="true" signature="123:476" ph="{...}" />
+                <marker date="1540484915662" expanded="true" signature="206:261" ph="{...}" />
+                <marker date="1540484915662" expanded="true" signature="305:474" ph="{...}" />
+                <marker date="1540484915662" expanded="true" signature="373:470" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -261,15 +261,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Documents/Games/GameStudioFinal2/Assets/Scripts/EnemyBehavior.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="10" column="32" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/Desktop/Fall 2018/CodeLab2/HW/HW_1/CodeLab2Match32018/Match3/Assets/Students/_Core/Scripts/InputManagerScript.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-383">
@@ -317,8 +308,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/PickupObject.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Prop.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/ContactDestroy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/InspectObject.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ContactDestroy.cs" />
       </list>
     </option>
   </component>
@@ -329,7 +320,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-8" />
+    <option name="x" value="2112" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1097" />
@@ -412,12 +403,12 @@
       <workItem from="1539633072800" duration="8030000" />
       <workItem from="1539697629291" duration="11296000" />
       <workItem from="1539787328401" duration="4022000" />
-      <workItem from="1539874749575" duration="43875000" />
+      <workItem from="1539874749575" duration="46870000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78413000" />
+    <option name="totallyTimeSpent" value="81408000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -429,7 +420,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1753" height="993" extended-state="7" />
+    <frame x="1913" y="-7" width="1753" height="993" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.11504425" />
@@ -696,26 +687,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Balcony/Assets/Scripts/RayActivator.cs">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/ContactDestroy.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+        <state relative-caret-position="368">
+          <caret line="18" column="9" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
           <folding>
-            <marker date="1540422453523" expanded="false" signature="6:78" ph="..." />
-            <marker date="1540422453523" expanded="true" signature="123:478" ph="{...}" />
-            <marker date="1540422453523" expanded="true" signature="206:261" ph="{...}" />
-            <marker date="1540422453523" expanded="true" signature="305:476" ph="{...}" />
-            <marker date="1540422453523" expanded="true" signature="373:469" ph="{...}" />
+            <marker date="1540484915662" expanded="false" signature="6:78" ph="..." />
+            <marker date="1540484915662" expanded="true" signature="123:476" ph="{...}" />
+            <marker date="1540484915662" expanded="true" signature="206:261" ph="{...}" />
+            <marker date="1540484915662" expanded="true" signature="305:474" ph="{...}" />
+            <marker date="1540484915662" expanded="true" signature="373:470" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://D:/Class Assignments/CL_2/CodeLab2AStar2018/Mazer/Assets/Students/_Avery/AHScripts/NewSurfaceShader.shader">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Prop.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="583">
+          <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
+          <folding>
+            <marker date="1540335898794" expanded="false" signature="6:78" ph="..." />
+            <marker date="1540335898794" expanded="true" signature="110:602" ph="{...}" />
+            <marker date="1540335898794" expanded="true" signature="305:391" ph="{...}" />
+            <marker date="1540335898794" expanded="true" signature="407:598" ph="{...}" />
+            <marker date="1540335898794" expanded="true" signature="426:528" ph="{...}" />
+            <marker date="1540335898794" expanded="true" signature="547:595" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Balcony/Assets/Scripts/RayActivator.cs">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/InspectObject.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7774">
+        <state relative-caret-position="569">
           <caret line="345" column="66" selection-start-line="345" selection-start-column="66" selection-end-line="345" selection-end-column="66" />
           <folding>
             <marker date="1540434174932" expanded="false" signature="6:258" ph="..." />
@@ -761,21 +770,6 @@
             <marker date="1540434174932" expanded="true" signature="9338:9967" ph="{...}" />
             <marker date="1540434174932" expanded="true" signature="9588:9961" ph="{...}" />
             <marker date="1540434174932" expanded="true" signature="9856:9951" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Prop.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="28" column="48" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
-          <folding>
-            <marker date="1540335898794" expanded="false" signature="6:78" ph="..." />
-            <marker date="1540335898794" expanded="true" signature="110:602" ph="{...}" />
-            <marker date="1540335898794" expanded="true" signature="305:391" ph="{...}" />
-            <marker date="1540335898794" expanded="true" signature="407:598" ph="{...}" />
-            <marker date="1540335898794" expanded="true" signature="426:528" ph="{...}" />
-            <marker date="1540335898794" expanded="true" signature="547:595" ph="{...}" />
           </folding>
         </state>
       </provider>

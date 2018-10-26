@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 54760896113184292}
   - component: {fileID: 136025536987888270}
   - component: {fileID: 114566796636275418}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,14 +99,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1221484075222760}
-  m_LocalRotation: {x: -0.015238095, y: 0.065656714, z: 0.0010027642, w: 0.9977254}
+  m_LocalRotation: {x: -0.015271054, y: 0, z: 0, w: 0.9998834}
   m_LocalPosition: {x: 0, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4124655731922086}
   m_Father: {fileID: 4655735958046702}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -1.75, y: 7.53, z: 0}
+  m_LocalEulerAnglesHint: {x: -1.75, y: 0, z: 0}
 --- !u!20 &20609022113264256
 Camera:
   m_ObjectHideFlags: 1
@@ -135,7 +135,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 311
+    m_Bits: 3383
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -366,6 +366,7 @@ MonoBehaviour:
   holdItemKey: 49
   putBackKey: 50
   swapItemKey: 51
+  interactionKey: 52
   mainCamera: {fileID: 20609022113264256}
   rigidbodyFirstPersonController: {fileID: 114566796636275418}
   holdingGuide: {fileID: 4124655731922086}
@@ -374,8 +375,12 @@ MonoBehaviour:
   holdingDistance: 0.15
   smoothing: 10
   rotSmoothing: 5
+  putBackText: Put Back
+  placeHereText: Place
   sprtToSwap: {fileID: 21300000, guid: d92f67476bf5c5648b91d3caa4267c71, type: 3}
   spriteRenderer: {fileID: 0}
+  rugtoMove: {fileID: 0}
+  newRugLoc: {fileID: 0}
 --- !u!124 &124460285173791986
 Behaviour:
   m_ObjectHideFlags: 1

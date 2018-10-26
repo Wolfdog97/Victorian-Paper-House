@@ -18,10 +18,8 @@ public class ContactDestroy : MonoBehaviour
 		if (col.gameObject.CompareTag("Prop"))
 		{
 			Debug.Log(col.gameObject.name);
+			//pickup.DropObject();
 			Destroy(col.gameObject);
-
-			pickup.DropObject();
-		}
-			
+		}	
 	}
 }

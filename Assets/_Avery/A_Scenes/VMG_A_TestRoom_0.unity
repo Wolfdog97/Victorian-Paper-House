@@ -4182,54 +4182,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114639404378812582, guid: 7a93392b6326e8c459abf8751dc4e97e,
+        type: 2}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 884219776}
     - target: {fileID: 136025536987888270, guid: 7a93392b6326e8c459abf8751dc4e97e,
         type: 2}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1,
         type: 2}
-    - target: {fileID: 114639404378812582, guid: 7a93392b6326e8c459abf8751dc4e97e,
-        type: 2}
-      propertyPath: spriteRenderer
-      value: 
-      objectReference: {fileID: 884219776}
-    - target: {fileID: 1175583483289072, guid: 7a93392b6326e8c459abf8751dc4e97e, type: 2}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1221484075222760, guid: 7a93392b6326e8c459abf8751dc4e97e, type: 2}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1366869494525498, guid: 7a93392b6326e8c459abf8751dc4e97e, type: 2}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 20609022113264256, guid: 7a93392b6326e8c459abf8751dc4e97e,
-        type: 2}
-      propertyPath: m_CullingMask.m_Bits
-      value: 3383
-      objectReference: {fileID: 0}
-    - target: {fileID: 4958944758209868, guid: 7a93392b6326e8c459abf8751dc4e97e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0.015271054
-      objectReference: {fileID: 0}
-    - target: {fileID: 4958944758209868, guid: 7a93392b6326e8c459abf8751dc4e97e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4958944758209868, guid: 7a93392b6326e8c459abf8751dc4e97e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4958944758209868, guid: 7a93392b6326e8c459abf8751dc4e97e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.9998834
-      objectReference: {fileID: 0}
-    - target: {fileID: 4958944758209868, guid: 7a93392b6326e8c459abf8751dc4e97e, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a93392b6326e8c459abf8751dc4e97e, type: 2}
   m_IsPrefabAsset: 0
