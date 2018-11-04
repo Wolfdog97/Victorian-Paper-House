@@ -20,6 +20,7 @@ public class ContactDestroy : MonoBehaviour
 			Debug.Log(col.gameObject.name);
 			//pickup.DropObject();
 			Destroy(col.gameObject);
+			
 		}	
 	}
 }

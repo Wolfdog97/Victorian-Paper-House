@@ -11,12 +11,18 @@ using UnityStandardAssets.Characters.FirstPerson;
  *
  * Missing or Broken:
  * Selecting tabs
+ * Display text or change cursor 
  */
 
 public class InspectObject : MonoBehaviour
 {
-
-    [Header("Keys: ")]
+    // Public Vars
+    public Camera mainCamera;
+    public RigidbodyFirstPersonController rigidbodyFirstPersonController;
+    public Transform holdingGuide;
+    [Space(10)]
+    
+    [Header("Input: ")]
     [Space(2)]
     public KeyCode holdItemKey = KeyCode.Alpha1;
     public KeyCode putBackKey = KeyCode.Alpha2;
@@ -24,51 +30,43 @@ public class InspectObject : MonoBehaviour
     public KeyCode interactionKey = KeyCode.Alpha4;
     [Space(10)]
     
-	public Camera mainCamera;
-    private Prop carriedObject;
-
-    public RigidbodyFirstPersonController rigidbodyFirstPersonController;
-
-    public Transform holdingGuide;
+	
+    [Header("Modes: ")]
+    [Space(2)]
+    public bool inspectionMode;
+    public bool holdingMode;
     [Space(10)]
-    
     
     // Bools
     [HideInInspector]
-    public bool isHolding;
-    [HideInInspector]
-    public bool holdingMode;
+    public bool isCarrying;
     
-    private bool _isInspecting = false;
-    private bool _isPlaceToPutBack = false;
+    //private bool _isPlaceToPutBack = false;
 
-    
     [Header("Distance & Smoothing: ")]
     [Space(2)]
     [Range(0f,3f)] public float holdingDistance = 2;
     [Range(1f,20f)] public float smoothing = 10;
     [Range(1f,20f)] public float rotSmoothing = 5;
-
-    float inspectDistance = 1;
-    float pickupDistance = 3;
+    protected float inspectDistance = 1;
+    protected float pickupDistance = 3;
+    [Space(10)]
     
     // Private Vars
-    private Transform tempTrans;
-    private Quaternion _inspectCameraRot;
-    private Quaternion _inspectItemRot;
-    private Vector3 _objOriginalPos;
-    private Vector3 _objOriginalRot;
-    private Vector3 _mousePos;
+    protected Transform tempTrans;
+    protected Quaternion _inspectCameraRot;
+    protected Quaternion _inspectItemRot;
+    protected Vector3 _objOriginalPos;
+    protected Vector3 _objOriginalRot;
+    protected Vector3 _mousePos;
+    protected Prop carriedObject;
     
-    //Raycaster
-    private GraphicRaycaster _graphicRaycaster;
-    private PointerEventData _pointerEventData;
     
     // Strings
     [Header("GUI Text: ")] 
     [Space(2)] 
-    public string putBackText = "Put Back";
-    public string placeHereText = "Place";
+    public string putBackText;
+    public string placeHereText;
     [Space(10)]
     
     // TO BE CHANGED!
@@ -76,26 +74,31 @@ public class InspectObject : MonoBehaviour
     [Space(2)]
     public Sprite sprtToSwap;
     public SpriteRenderer spriteRenderer;
-
     public GameObject rugtoMove;
     public Transform newRugLoc;
     
 	
 	void Update () {
-        if (isHolding)
+	    /*
+	     * To Clarify: Change to Mode/State Switching.
+	     * Modes: Inspection, Holding
+	     */
+	    
+        if (isCarrying)
         {
             Inspect(carriedObject);
+            
             CheckDrop();
+            
+            if (holdingMode)
+            {
+                HoldItem(carriedObject);
+            }
         }
         else
         {
             PickupObject();
         }
-
-	    if (isHolding && holdingMode)
-	    {
-	        HoldItem(carriedObject); 
-	    }
 
 	    if (Input.GetKeyDown(interactionKey))
 	    {
@@ -105,8 +108,9 @@ public class InspectObject : MonoBehaviour
 	    //TextOnRaycast();
 	}
  
-    //(REWRITE!) Picking up the item and entering "Inspection Mode"
-    // Note: Seperate shooting Raycast from PickupObject()
+    // (REWRITE!) Picking up the item and entering "Inspection Mode"
+    // Note: Seperate shooting Raycast from PickupObject()?
+    // This function should only cover the picking up option
     public void PickupObject()
     {
         if (Input.GetMouseButtonDown(0))
@@ -121,8 +125,8 @@ public class InspectObject : MonoBehaviour
                 Debug.Log(hit.collider);
 
                 Prop pickupable = hit.collider.GetComponent<Prop>();
-                
                 Debug.DrawRay(ray.origin, ray.direction * 100, Color.green); // Drawing ray
+                
                 if(pickupable != null && 
                    Vector3.Distance(pickupable.transform.position, mainCamera.transform.position) < pickupDistance)
                 {
@@ -130,20 +134,14 @@ public class InspectObject : MonoBehaviour
                     _objOriginalPos = pickupable.originalPos;
                     _objOriginalRot = pickupable.originalRot;
                     
-                    
-                    isHolding = true;
+                    isCarrying = true;
                     carriedObject = pickupable;
                     carriedObject.transform.parent = gameObject.transform;
                     pickupable.GetComponent<Rigidbody>().isKinematic = true;
                     pickupable.amPickedUp = true;
-
-
-                    //Debug.Log("After PickupObject: " + _objOriginalPos);
-                    //Debug.Log("After PickupObject: " + _objOriginalRot);
                 }
                 
                 // Temp
-                
                 if (hit.Equals(gameObject.CompareTag("Target")))
                 {
                     moveObject();
@@ -152,46 +150,12 @@ public class InspectObject : MonoBehaviour
         }
     }
     
-    // Not implemented
-    public void TextOnRaycast()
-    {
-        int x = Screen.width / 2;
-        int y = Screen.height / 2;
-
-        Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(new Vector3(x,y));
-        RaycastHit _hit;
-
-        Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow); // Drawing ray
-        if (Physics.Raycast(ray, out _hit, pickupDistance))
-        {
-            
-            if (_hit.collider.gameObject.CompareTag("Target"))
-            {
-                _isPlaceToPutBack = true;
-            }
-            else
-            {
-                Debug.Log("Nothing");
-            }
-            
-        }
-    }
-
-    // Not implemented
-    void OnGui()
-    {
-        if (_isPlaceToPutBack)
-        {
-            GUILayout.Label(putBackText);// Text for placing objects
-        }
-    }
-    
-    public void Inspect(Prop obj)
+    public void Inspect(Prop obj) // Filled with carriedObject in update
     {
         if(obj != null && !holdingMode)
         {
             // Change bool
-            _isInspecting = true;
+            inspectionMode = true;
             
             //Move the object into position
             obj.transform.position = Vector3.Lerp(obj.transform.position,
@@ -210,7 +174,7 @@ public class InspectObject : MonoBehaviour
 
             //Tell prop to Instantiate item option tags
             
-            // Mode switching 
+            // Mode switching (Move to update?)
             if (Input.GetKeyDown(holdItemKey))
             {
                 HoldingMode();
@@ -227,7 +191,7 @@ public class InspectObject : MonoBehaviour
     }
 
     // Rewrite
-    public void HoldItem(Prop item)
+    public void HoldItem(Prop obj)
     {
         // Unlock cursor and FP Character controller
         if (!rigidbodyFirstPersonController.enabled)
@@ -237,13 +201,13 @@ public class InspectObject : MonoBehaviour
         }
         
         // Changing Item Position
-        if (item != null)
+        if (obj != null)
         {
-            item.transform.position = Vector3.Lerp(item.transform.position,
+            obj.transform.position = Vector3.Lerp(obj.transform.position,
                 holdingGuide.position + mainCamera.transform.forward * holdingDistance, Time.deltaTime * smoothing);
             
             _inspectItemRot *= Quaternion.Euler(0,0,0);
-            item.transform.rotation = _inspectItemRot;
+            obj.transform.rotation = _inspectItemRot;
         }
     }
 
@@ -254,9 +218,16 @@ public class InspectObject : MonoBehaviour
             DropObject();
         }
         
-        if (Input.GetKeyDown(putBackKey) && _isInspecting)
+        if (Input.GetKeyDown(putBackKey) && inspectionMode)
         {
             PutBackObj();
+        }
+
+        if (carriedObject == null)
+        {
+            isCarrying = false;
+            holdingMode = false;
+            inspectionMode = false;
         }
     }
 
@@ -264,9 +235,9 @@ public class InspectObject : MonoBehaviour
     {
         if (carriedObject != null)
         {
-            isHolding = false;
+            isCarrying = false;
             holdingMode = false;
-            _isInspecting = false;
+            inspectionMode = false;
             
             rigidbodyFirstPersonController.mouseLook.SetCursorLock(true);
             rigidbodyFirstPersonController.enabled = true;
@@ -282,16 +253,16 @@ public class InspectObject : MonoBehaviour
     public void HoldingMode()
     {
         holdingMode = true;
-        _isInspecting = false;
+        inspectionMode = false;
     }
 
     public void PutBackObj()
     {
         if (carriedObject != null)
         {
-            isHolding = false;
+            isCarrying = false;
             holdingMode = false;
-            _isInspecting = false;
+            inspectionMode = false;
             
             rigidbodyFirstPersonController.mouseLook.SetCursorLock(true);
             rigidbodyFirstPersonController.enabled = true;
@@ -307,11 +278,7 @@ public class InspectObject : MonoBehaviour
         }
     }
 
-    // Temp  or Needs Work
-    
-    
-    
-    
+    // Temp/Needs Work/Should be removed
     private void RotateItem()
     {
         // Setting Camera Rotation to Mouse Position     
@@ -321,7 +288,8 @@ public class InspectObject : MonoBehaviour
         // Get Mouse position
         _mousePos = Input.mousePosition;
     }
-
+    
+    // Temp
     public void SwapObject()
     {
         spriteRenderer.sprite = sprtToSwap;
@@ -345,6 +313,22 @@ public class InspectObject : MonoBehaviour
             {
                 rugtoMove.transform.position = newRugLoc.position;
             }
+        }
+    }
+    
+    // Not implemented
+    public void TextOnRaycast()
+    {
+        int x = Screen.width / 2;
+        int y = Screen.height / 2;
+
+        Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(new Vector3(x,y));
+        RaycastHit _hit;
+
+        Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow); // Drawing ray
+        if (Physics.Raycast(ray, out _hit, pickupDistance))
+        {
+            
         }
     }
 }

@@ -566,34 +566,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 1175583483289072, guid: 7a93392b6326e8c459abf8751dc4e97e, type: 2}
-      propertyPath: m_Name
-      value: Player (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1175583483289072, guid: 7a93392b6326e8c459abf8751dc4e97e, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639404378812582, guid: 7a93392b6326e8c459abf8751dc4e97e,
-        type: 2}
-      propertyPath: holdItemKey
-      value: 113
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639404378812582, guid: 7a93392b6326e8c459abf8751dc4e97e,
-        type: 2}
-      propertyPath: putBackKey
-      value: 98
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639404378812582, guid: 7a93392b6326e8c459abf8751dc4e97e,
-        type: 2}
-      propertyPath: swapItemKey
-      value: 101
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639404378812582, guid: 7a93392b6326e8c459abf8751dc4e97e,
-        type: 2}
-      propertyPath: interactionKey
-      value: 102
-      objectReference: {fileID: 0}
     - target: {fileID: 114639404378812582, guid: 7a93392b6326e8c459abf8751dc4e97e,
         type: 2}
       propertyPath: spriteRenderer
@@ -609,17 +581,15 @@ Prefab:
       propertyPath: newRugLoc
       value: 
       objectReference: {fileID: 1233738325}
-    - target: {fileID: 20609022113264256, guid: 7a93392b6326e8c459abf8751dc4e97e,
-        type: 2}
-      propertyPath: m_CullingMask.m_Bits
-      value: 3383
+    - target: {fileID: 1175583483289072, guid: 7a93392b6326e8c459abf8751dc4e97e, type: 2}
+      propertyPath: m_Name
+      value: Player (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 114639404378812582, guid: 7a93392b6326e8c459abf8751dc4e97e,
+    - target: {fileID: 114279818988345064, guid: 7a93392b6326e8c459abf8751dc4e97e,
         type: 2}
-      propertyPath: sprtToSwap
-      value: 
-      objectReference: {fileID: 21300000, guid: dd4416ed3a73d734298112b4f10ffdaa,
-        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a93392b6326e8c459abf8751dc4e97e, type: 2}
   m_IsPrefabAsset: 0
@@ -1937,6 +1907,11 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 95711742100313526, guid: 8bdf0399e38f42a458b04f2c1ac2d8b5,
+        type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 4fe75ecd99cc42d4299304c5754765ea, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bdf0399e38f42a458b04f2c1ac2d8b5, type: 2}
   m_IsPrefabAsset: 0

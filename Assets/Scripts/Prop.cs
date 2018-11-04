@@ -4,26 +4,37 @@ using UnityEngine;
 
 public class Prop : Pickupable
 {
-	
-	[HideInInspector] public Vector3 originalPos;
-	[HideInInspector] public Vector3 originalRot;
+	[Header("Read Only: ")]
+	[SerializeField] protected Vector3 _originalPos;
+	[SerializeField] protected Vector3 _originalRot;
 	[HideInInspector] public bool amPickedUp;
-	public bool printLoc = false;
+	[Space(2)]
+	
+	public bool printOriginalLocation = false;
+
+	// Private vars returned by public function so the positions can be read, but cannot be changed
+	public Vector3 originalPos
+	{
+		get { return _originalPos; }
+	}
+	public Vector3 originalRot
+	{
+		get { return _originalPos; }
+	}
 
 	private void Awake()
 	{
-		originalPos = transform.position;
-		originalRot = transform.localEulerAngles;
+		_originalPos = transform.position;
+		_originalRot = transform.localEulerAngles;
 	}
 
 	void Update()
 	{
-		if (printLoc)
+		if (printOriginalLocation)
 		{
-			Debug.Log(name + "OG Pos: " + originalPos);
-			Debug.Log(name + "OG Rot: " + originalRot);
+			Debug.Log(name + "OG Pos: " + _originalPos);
+			Debug.Log(name + "OG Rot: " + _originalRot);
 		}
-
 		if (amPickedUp)
 		{
 			Physics.IgnoreLayerCollision(10,11);
