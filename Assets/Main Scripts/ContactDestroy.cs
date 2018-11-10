@@ -13,7 +13,7 @@ public class ContactDestroy : MonoBehaviour
 		if (_prop != null)
 		{
 			Debug.Log(_prop.name);
-			Destroy(_prop);
+			Destroy(_prop.gameObject);
 		}	
 	}
 }

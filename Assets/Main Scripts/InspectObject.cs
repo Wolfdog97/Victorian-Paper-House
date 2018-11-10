@@ -47,7 +47,7 @@ public class InspectObject : MonoBehaviour
     [Range(0f,3f)] public float holdingDistance = 2;
     [Range(1f,20f)] public float smoothing = 10;
     [Range(1f,20f)] public float rotSmoothing = 5;
-    protected float inspectDistance = 1;
+    [Range(0,1f)]public float inspectDistance = 1; // Should this depend on the object?
     protected float pickupDistance = 3;
     [Space(10)]
     
@@ -144,7 +144,7 @@ public class InspectObject : MonoBehaviour
             
             //Move the object into position
             obj.transform.position = Vector3.Lerp(obj.transform.position,
-                mainCamera.transform.position + mainCamera.transform.forward * inspectDistance, Time.deltaTime * smoothing);
+                (mainCamera.transform.position + obj.propInspectOffset) + mainCamera.transform.forward * inspectDistance, Time.deltaTime * smoothing);
             
             // Object should face the player
             obj.transform.LookAt(gameObject.transform);
@@ -155,13 +155,11 @@ public class InspectObject : MonoBehaviour
             // Unlock Mouse cursor
             rigidbodyFirstPersonController.mouseLook.SetCursorLock(false);
             
-            //Setting the look rotation of the camera during while Inspecting 
-            _inspectCameraRot *= Quaternion.Euler(0,0,0);
+            //Setting the look rotation of the camera during while Inspecting
+            //_inspectCameraRot *= Quaternion.Euler(0,0,0);
             mainCamera.transform.localEulerAngles = new Vector3(Mathf.Lerp(mainCamera.transform.localEulerAngles.x, 0, Time.deltaTime * rotSmoothing), 
                 mainCamera.transform.localEulerAngles.y, mainCamera.transform.localEulerAngles.z);
 
-            //Tell prop to Instantiate item option tags
-            
             // Mode switching (Move to update?)
             if (Input.GetKeyDown(holdItemKey))
             {
@@ -184,7 +182,7 @@ public class InspectObject : MonoBehaviour
             rigidbodyFirstPersonController.mouseLook.SetCursorLock(true);
         }
         
-        // Changing Item Position
+        // Changing Item Position (Should Props have custom hold Pos?)
         if (obj != null)
         {
             obj.transform.position = Vector3.Lerp(obj.transform.position,
@@ -262,7 +260,7 @@ public class InspectObject : MonoBehaviour
             
             // Setting the carriedObject transform back to the original state that is stored in Prop. (transforms are nto being set correctly) 
             carriedObject.transform.position = carriedObject.originalPos;
-            carriedObject.transform.localEulerAngles = carriedObject.originalRot;
+            carriedObject.transform.eulerAngles = carriedObject.originalRot;
             
             // No longer carrying an object
             carriedObject = null;
@@ -283,19 +281,20 @@ public class InspectObject : MonoBehaviour
         {
             //Debug.Log(hit.collider);
             Debug.DrawRay(ray.origin, ray.direction * 100, Color.blue); // Drawing ray
-                
+
+            PlacementLocation pLoc = hit.collider.GetComponent<PlacementLocation>();
             // If the Object the ray hits is in the list of the Props valid locations
             // This should usually return false
-            if (carriedObject != null && carriedObject.CheckLocation(hit.collider.transform, carriedObject.validLocations))
+            if (carriedObject != null && carriedObject.CheckLocation(pLoc, carriedObject.validLocations))
             {
                 //change reticle
                 Debug.Log("this is valid location");
-                Debug.Log(carriedObject.CheckLocation(hit.transform, carriedObject.validLocations));
+                Debug.Log(carriedObject.CheckLocation(pLoc, carriedObject.validLocations));
 
                 if (Input.GetMouseButtonDown(0))
                 {
                     carriedObject.transform.position = hit.transform.position;
-                    carriedObject.transform.localEulerAngles = hit.transform.localEulerAngles;
+                    carriedObject.transform.eulerAngles = hit.transform.eulerAngles;
                     
                     DropObject();
                 }
@@ -305,7 +304,15 @@ public class InspectObject : MonoBehaviour
     // Temp
     public void SwapObject()
     {
-        spriteRenderer.sprite = sprtToSwap;
+        if (spriteRenderer != null || sprtToSwap != null)
+        {
+            spriteRenderer.sprite = sprtToSwap;
+        }
+        else
+        {
+            Debug.LogWarning("Null in the inspector");
+        }
+        
         //carriedObject = objToSwap; // then what?
     }
     

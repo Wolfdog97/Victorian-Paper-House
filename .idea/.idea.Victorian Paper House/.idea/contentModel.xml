@@ -22,10 +22,12 @@
           <e p="PauseMenu.cs" t="Include" />
           <e p="Pickupable.cs" t="Include" />
           <e p="PickupObject.cs" t="Include" />
+          <e p="PlacementLocation.cs" t="Include" />
           <e p="Prop.cs" t="Include" />
+          <e p="PuzzleManager.cs" t="Include" />
           <e p="ReticleController.cs" t="Include" />
           <e p="ShuffleBag.cs" t="Include" />
-          <e p="Swapable.cs" t="Include" />
+          <e p="SwapableObject.cs" t="Include" />
         </e>
         <e p="Standard Assets" t="Include">
           <e p="Cameras" t="Include">

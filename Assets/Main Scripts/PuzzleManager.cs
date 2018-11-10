@@ -2,11 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
- * Allow one object ot be swapped with another
- * 
- */
-public class Swapable : MonoBehaviour {
+public class PuzzleManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

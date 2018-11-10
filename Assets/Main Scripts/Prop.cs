@@ -17,9 +17,7 @@ public class Prop : Pickupable
 	[Space(2)] 
 	
 	[Header("Where I can be")]
-	public List<Transform> validLocations;
-
-	public Transform test;
+	public List<PlacementLocation> validLocations;
 
 	[Header("Read Only: ")] 
 	[SerializeField] protected Vector3 _originalPos;
@@ -31,6 +29,9 @@ public class Prop : Pickupable
 	public bool tagsAreActive;
 	public bool printOriginalLocation;
 	public bool printCurrentLocation;
+	
+	// Causes Rotation issue
+	public Vector3 propInspectOffset = new Vector3(0,0,0);
 	
 	
 	// Private vars returned by public function so the positions can be read, but cannot be changed
@@ -47,7 +48,7 @@ public class Prop : Pickupable
 	private void Start()
 	{
 		_originalPos = transform.position;
-		_originalRot = transform.localEulerAngles;
+		_originalRot = transform.eulerAngles;
 	}
 
 	void Update()
@@ -99,7 +100,7 @@ public class Prop : Pickupable
 		}
 	}
 	
-	public bool CheckLocation(Transform loc, List<Transform> list)
+	public bool CheckLocation(PlacementLocation loc, List<PlacementLocation> list)
 	{
 		// Iterate through list
 		// Check if that transform is not in the list
