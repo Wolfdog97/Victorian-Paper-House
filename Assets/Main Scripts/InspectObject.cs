@@ -6,12 +6,11 @@ using UnityEngine.Experimental.UIElements;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
+using TMPro;
 /*
  * This Script is a mess! Rewrite needed!
- *
- * Missing or Broken:
- * Selecting tabs
- * Display text or change cursor 
+ * Notes: I only need to shoot one ray then check for conditions
+ *     Should I only include Prop tag functions and related functions?
  */
 
 public class InspectObject : MonoBehaviour
@@ -20,14 +19,16 @@ public class InspectObject : MonoBehaviour
     public Camera mainCamera;
     public RigidbodyFirstPersonController rigidbodyFirstPersonController;
     public Transform holdingGuide;
-    [Space(10)]
+    [Space(10)] 
     
-    [Header("Input: ")]
+    [Header("Input: ")] 
     [Space(2)]
+    public KeyCode pickupKey = KeyCode.E;
     public KeyCode holdItemKey = KeyCode.Alpha1;
     public KeyCode putBackKey = KeyCode.Alpha2;
     public KeyCode swapItemKey = KeyCode.Alpha3;
     public KeyCode interactionKey = KeyCode.Alpha4;
+    public KeyCode dropObjectKey = KeyCode.Alpha5;
     [Space(10)]
     
 	
@@ -38,10 +39,8 @@ public class InspectObject : MonoBehaviour
     [Space(10)]
     
     // Bools
-    [HideInInspector]
-    public bool isCarrying;
-    
-    //private bool _isPlaceToPutBack = false;
+    [SerializeField]
+    protected bool isCarrying;
 
     [Header("Distance & Smoothing: ")]
     [Space(2)]
@@ -59,15 +58,13 @@ public class InspectObject : MonoBehaviour
     protected Vector3 _objOriginalPos;
     protected Vector3 _objOriginalRot;
     protected Vector3 _mousePos;
-    protected Prop carriedObject;
+    [SerializeField] protected Prop carriedObject;
     
+//    [Header("Debug: ")] 
+//    public GameObject controlsPanel;
+//    public TextMeshProUGUI controlsText;
+//    public bool showControls;
     
-    // Strings
-    [Header("GUI Text: ")] 
-    [Space(2)] 
-    public string putBackText;
-    public string placeHereText;
-    [Space(10)]
     
     // TO BE CHANGED!
     [Header("Temp: ")]
@@ -76,13 +73,10 @@ public class InspectObject : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public GameObject rugtoMove;
     public Transform newRugLoc;
-    
-	
+    public Prop objToSwap;
+
+
 	void Update () {
-	    /*
-	     * To Clarify: Change to Mode/State Switching.
-	     * Modes: Inspection, Holding
-	     */
 	    
         if (isCarrying)
         {
@@ -93,19 +87,13 @@ public class InspectObject : MonoBehaviour
             if (holdingMode)
             {
                 HoldItem(carriedObject);
+                PlaceObject();
             }
         }
         else
         {
             PickupObject();
         }
-
-	    if (Input.GetKeyDown(interactionKey))
-	    {
-	        moveObject();
-	    }
-	    
-	    //TextOnRaycast();
 	}
  
     // (REWRITE!) Picking up the item and entering "Inspection Mode"
@@ -122,7 +110,7 @@ public class InspectObject : MonoBehaviour
             RaycastHit hit = new RaycastHit();
             if(Physics.Raycast(ray, out hit))
             {
-                Debug.Log(hit.collider);
+                //Debug.Log(hit.collider);
 
                 Prop pickupable = hit.collider.GetComponent<Prop>();
                 Debug.DrawRay(ray.origin, ray.direction * 100, Color.green); // Drawing ray
@@ -130,9 +118,11 @@ public class InspectObject : MonoBehaviour
                 if(pickupable != null && 
                    Vector3.Distance(pickupable.transform.position, mainCamera.transform.position) < pickupDistance)
                 {
-                    // Getting item original Location
-                    _objOriginalPos = pickupable.originalPos;
-                    _objOriginalRot = pickupable.originalRot;
+                    // Getting item original Location (These are not being set to the right value)
+                   // _objOriginalPos = pickupable.originalPos;
+                    //_objOriginalRot = pickupable.originalRot;
+                    //Debug.Log(" IO._objOriginalRot: " + pickupable.originalRot);
+                    
                     
                     isCarrying = true;
                     carriedObject = pickupable;
@@ -140,17 +130,12 @@ public class InspectObject : MonoBehaviour
                     pickupable.GetComponent<Rigidbody>().isKinematic = true;
                     pickupable.amPickedUp = true;
                 }
-                
-                // Temp
-                if (hit.Equals(gameObject.CompareTag("Target")))
-                {
-                    moveObject();
-                }
             }
         }
     }
     
-    public void Inspect(Prop obj) // Filled with carriedObject in update
+    // Filled with carriedObject in update
+    public void Inspect(Prop obj) 
     {
         if(obj != null && !holdingMode)
         {
@@ -160,6 +145,9 @@ public class InspectObject : MonoBehaviour
             //Move the object into position
             obj.transform.position = Vector3.Lerp(obj.transform.position,
                 mainCamera.transform.position + mainCamera.transform.forward * inspectDistance, Time.deltaTime * smoothing);
+            
+            // Object should face the player
+            obj.transform.LookAt(gameObject.transform);
             
             // Lock Mouse Look
             rigidbodyFirstPersonController.enabled = false;
@@ -178,10 +166,6 @@ public class InspectObject : MonoBehaviour
             if (Input.GetKeyDown(holdItemKey))
             {
                 HoldingMode();
-            }
-            if (Input.GetMouseButton(1))
-            {
-                RotateItem();
             }
             if (Input.GetKeyDown(swapItemKey))
             {
@@ -206,14 +190,14 @@ public class InspectObject : MonoBehaviour
             obj.transform.position = Vector3.Lerp(obj.transform.position,
                 holdingGuide.position + mainCamera.transform.forward * holdingDistance, Time.deltaTime * smoothing);
             
-            _inspectItemRot *= Quaternion.Euler(0,0,0);
-            obj.transform.rotation = _inspectItemRot;
+            //_inspectItemRot *= Quaternion.Euler(0,0,0);
+            obj.transform.localRotation = holdingGuide.transform.localRotation;
         }
     }
 
     void CheckDrop()
     {
-        if (Input.GetMouseButtonDown(0) && holdingMode)
+        if (Input.GetKeyDown(dropObjectKey) && holdingMode)
         {
             DropObject();
         }
@@ -235,13 +219,16 @@ public class InspectObject : MonoBehaviour
     {
         if (carriedObject != null)
         {
+            // Make sure bools are false
             isCarrying = false;
             holdingMode = false;
             inspectionMode = false;
             
+            // Unlock the controller
             rigidbodyFirstPersonController.mouseLook.SetCursorLock(true);
             rigidbodyFirstPersonController.enabled = true;
-
+            
+            // Unparent the carriedObject & all physics interactions
             carriedObject.transform.parent = null;
             carriedObject.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             
@@ -255,30 +242,74 @@ public class InspectObject : MonoBehaviour
         holdingMode = true;
         inspectionMode = false;
     }
-
+    
     public void PutBackObj()
     {
         if (carriedObject != null)
         {
+            // Make sure bools are false
             isCarrying = false;
             holdingMode = false;
             inspectionMode = false;
             
+            // Unlock the controller
             rigidbodyFirstPersonController.mouseLook.SetCursorLock(true);
             rigidbodyFirstPersonController.enabled = true;
-
+            
+            // Unparent the carriedObject & turn on all physics interactions
             carriedObject.transform.parent = null;
             carriedObject.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             
-            carriedObject.transform.position = _objOriginalPos;
-            carriedObject.transform.localEulerAngles = _objOriginalRot;
+            // Setting the carriedObject transform back to the original state that is stored in Prop. (transforms are nto being set correctly) 
+            carriedObject.transform.position = carriedObject.originalPos;
+            carriedObject.transform.localEulerAngles = carriedObject.originalRot;
             
-            
+            // No longer carrying an object
             carriedObject = null;
         }
     }
+    
+    // Note: Should this be in a different script????
+    public void PlaceObject()
+    {
+        int x = Screen.width / 2;
+        int y = Screen.height / 2;
 
-    // Temp/Needs Work/Should be removed
+        Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(new Vector3(x, y));
+        RaycastHit hit = new RaycastHit();
+        Debug.DrawRay(ray.origin, ray.direction * 100, Color.red);
+             
+        if(Physics.Raycast(ray, out hit))
+        {
+            //Debug.Log(hit.collider);
+            Debug.DrawRay(ray.origin, ray.direction * 100, Color.blue); // Drawing ray
+                
+            // If the Object the ray hits is in the list of the Props valid locations
+            // This should usually return false
+            if (carriedObject != null && carriedObject.CheckLocation(hit.collider.transform, carriedObject.validLocations))
+            {
+                //change reticle
+                Debug.Log("this is valid location");
+                Debug.Log(carriedObject.CheckLocation(hit.transform, carriedObject.validLocations));
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    carriedObject.transform.position = hit.transform.position;
+                    carriedObject.transform.localEulerAngles = hit.transform.localEulerAngles;
+                    
+                    DropObject();
+                }
+            }
+        }
+    }
+    // Temp
+    public void SwapObject()
+    {
+        spriteRenderer.sprite = sprtToSwap;
+        //carriedObject = objToSwap; // then what?
+    }
+    
+    // not used
     private void RotateItem()
     {
         // Setting Camera Rotation to Mouse Position     
@@ -287,48 +318,5 @@ public class InspectObject : MonoBehaviour
        
         // Get Mouse position
         _mousePos = Input.mousePosition;
-    }
-    
-    // Temp
-    public void SwapObject()
-    {
-        spriteRenderer.sprite = sprtToSwap;
-    }
-
-    public void moveObject()
-    {
-        int x = Screen.width / 2;
-        int y = Screen.height / 2;
-
-        Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(new Vector3(x, y));
-        RaycastHit hit = new RaycastHit();
-        if(Physics.Raycast(ray, out hit))
-        {
-            Debug.Log(hit.collider);
-                
-            Debug.DrawRay(ray.origin, ray.direction * 100, Color.green); // Drawing ray
-            // Temp
-            GameObject obj = hit.collider.gameObject;
-            if (obj.tag.Equals("Target"))
-            {
-                rugtoMove.transform.position = newRugLoc.position;
-            }
-        }
-    }
-    
-    // Not implemented
-    public void TextOnRaycast()
-    {
-        int x = Screen.width / 2;
-        int y = Screen.height / 2;
-
-        Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(new Vector3(x,y));
-        RaycastHit _hit;
-
-        Debug.DrawRay(ray.origin, ray.direction * 100, Color.yellow); // Drawing ray
-        if (Physics.Raycast(ray, out _hit, pickupDistance))
-        {
-            
-        }
     }
 }

@@ -9,15 +9,22 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="Scripts" t="Include">
+        <e p="_Avery" t="Include">
+          <e p="TesterScript.cs" t="Include" />
+        </e>
+        <e p="Main Scripts" t="Include">
           <e p="ContactDestroy.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
+          <e p="GazeController.cs" t="Include" />
           <e p="InspectObject.cs" t="Include" />
           <e p="MainMenu.cs" t="Include" />
+          <e p="Movable.cs" t="Include" />
           <e p="PauseMenu.cs" t="Include" />
           <e p="Pickupable.cs" t="Include" />
           <e p="PickupObject.cs" t="Include" />
           <e p="Prop.cs" t="Include" />
+          <e p="ReticleController.cs" t="Include" />
+          <e p="ShuffleBag.cs" t="Include" />
           <e p="Swapable.cs" t="Include" />
         </e>
         <e p="Standard Assets" t="Include">
