@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour {
     public KeyCode restartKey = KeyCode.R;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		if (instance == null) // if there is no GameManager do not destroy on load
         {
             instance = this;

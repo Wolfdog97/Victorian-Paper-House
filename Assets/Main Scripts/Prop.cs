@@ -7,6 +7,7 @@ using UnityEngine;
  * But what if it is placed in a new location and put back is called? inNewLoc variable?
  */
 
+
 public class Prop : Pickupable
 {
 	public string displayName = "default";

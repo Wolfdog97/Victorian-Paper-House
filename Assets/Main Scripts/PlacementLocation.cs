@@ -5,12 +5,14 @@ using UnityEngine;
 public class PlacementLocation : MonoBehaviour
 {
 
-	public Prop targetProp;
+	public GameObject targetProp;
+	public PuzzleManager pManager;
+	public bool weGood;
 	
 	
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+	{
 	}
 	
 	// Update is called once per frame
@@ -18,16 +20,16 @@ public class PlacementLocation : MonoBehaviour
 		
 	}
 
-	void CheckCondition()
+	void CheckCondition(GameObject propObject)
 	{
-		
+		if (propObject == targetProp)
+		{
+			pManager.LocConditionMet();
+		}
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (targetProp != null)
-		{
-			
-		}
+		CheckCondition(other.gameObject);
 	}
 }

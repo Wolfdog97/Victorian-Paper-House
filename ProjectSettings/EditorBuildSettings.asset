@@ -4,14 +4,4 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/_Avery/A_Scenes/TitleScreen.unity
-    guid: 410231ec36d89954185bbd264d4ff2d3
-  - enabled: 1
-    path: Assets/_Avery/A_Scenes/VMG_MS1Test.unity
-    guid: ededa7105673cea40ba449dcd21e8916
-  - enabled: 0
-    path: Assets/_Team/Scenes Master/VMG_Room_1.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  m_configObjects: {}
+  m_Scenes: []

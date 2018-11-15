@@ -81,7 +81,6 @@ public class InspectObject : MonoBehaviour
         if (isCarrying)
         {
             Inspect(carriedObject);
-            
             CheckDrop();
             
             if (holdingMode)
@@ -171,6 +170,13 @@ public class InspectObject : MonoBehaviour
             }
         }   
     }
+    
+    // Add to HoldItem()
+    public void HoldingMode()
+    {
+        holdingMode = true;
+        inspectionMode = false;
+    }
 
     // Rewrite
     public void HoldItem(Prop obj)
@@ -235,12 +241,6 @@ public class InspectObject : MonoBehaviour
         }
     }
 
-    public void HoldingMode()
-    {
-        holdingMode = true;
-        inspectionMode = false;
-    }
-    
     public void PutBackObj()
     {
         if (carriedObject != null)
