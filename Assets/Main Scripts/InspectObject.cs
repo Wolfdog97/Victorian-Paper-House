@@ -112,6 +112,11 @@ public class InspectObject : MonoBehaviour
                 //Debug.Log(hit.collider);
 
                 Prop pickupable = hit.collider.GetComponent<Prop>();
+                //temp
+                PillarButton button = hit.collider.GetComponent<PillarButton>();
+                LightOrbScript orb = hit.collider.GetComponent<LightOrbScript>();
+                
+                
                 Debug.DrawRay(ray.origin, ray.direction * 100, Color.green); // Drawing ray
                 
                 if(pickupable != null && 
@@ -128,6 +133,15 @@ public class InspectObject : MonoBehaviour
                     carriedObject.transform.parent = gameObject.transform;
                     pickupable.GetComponent<Rigidbody>().isKinematic = true;
                     pickupable.amPickedUp = true;
+                }
+                if (button != null)
+                {
+                    button.amPressed = true;
+                }
+
+                if (orb != null && orb.objPlaced)
+                {
+                    orb.transform.Rotate(90,0,0);
                 }
             }
         }
@@ -168,6 +182,13 @@ public class InspectObject : MonoBehaviour
             {
                 SwapObject();
             }
+            
+            //Forgot how this worked, but can be used
+            if (Input.GetMouseButtonDown(1))
+            {
+                RotateItem();
+            }
+
         }   
     }
     
@@ -295,6 +316,7 @@ public class InspectObject : MonoBehaviour
                 {
                     carriedObject.transform.position = hit.transform.position;
                     carriedObject.transform.eulerAngles = hit.transform.eulerAngles;
+                    carriedObject.objPlaced = true;
                     
                     DropObject();
                 }

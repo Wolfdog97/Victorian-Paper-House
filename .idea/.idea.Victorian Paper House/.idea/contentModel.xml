@@ -40,6 +40,11 @@
         </e>
         <e p="Main Scripts" t="Include">
           <e p="ContactDestroy.cs" t="Include" />
+          <e p="ExposureScripts" t="Include">
+            <e p="LightOrbScript.cs" t="Include" />
+            <e p="PillarButton.cs" t="Include" />
+            <e p="PillarScript.cs" t="Include" />
+          </e>
           <e p="GameManager.cs" t="Include" />
           <e p="GazeController.cs" t="Include" />
           <e p="InspectObject.cs" t="Include" />
@@ -157,6 +162,7 @@
         </e>
         <e p="TeaCup.cs" t="Include" />
         <e p="TeaCupPuzzleChecker.cs" t="Include" />
+        <e p="Teleporter.cs" t="Include" />
         <e p="TextMesh Pro" t="Include">
           <e p="Resources" t="Include">
             <e p="LineBreaking Following Characters.txt" t="Include" />
