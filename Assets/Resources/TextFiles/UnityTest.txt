@@ -1,0 +1,11 @@
+This is the first implementation of the "designer's notes" system.
+General Notes:
+
+To-Do by Wednesday night:
+* Fix format
+* Finish pop up for objects
+* Make it look a little better
+* Many QoL changes
+* Add mousepointer stuff to a function
+* Finish exposure puzzle_1
+* Intergrate all finished systems for playtest build

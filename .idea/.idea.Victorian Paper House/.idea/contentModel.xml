@@ -13,6 +13,11 @@
         <e p="_Avery" t="Include">
           <e p="TesterScript.cs" t="Include" />
         </e>
+        <e p="_Shakar" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="AddTextToObjects.cs" t="Include" />
+          </e>
+        </e>
         <e p="Editor" t="Include">
           <e p="PackageManagerAssembly" t="Include">
             <e p="PackageImportList.txt" t="Include" />
@@ -38,6 +43,7 @@
             </e>
           </e>
         </e>
+        <e p="LevelSelect.cs" t="Include" />
         <e p="Main Scripts" t="Include">
           <e p="ContactDestroy.cs" t="Include" />
           <e p="ExposureScripts" t="Include">
@@ -61,6 +67,15 @@
           <e p="ShuffleBag.cs" t="Include" />
           <e p="SwapableObject.cs" t="Include" />
         </e>
+        <e p="MakeUIElement.cs" t="Include" />
+        <e p="NotesText.cs" t="Include" />
+        <e p="Resources" t="Include">
+          <e p="TextFiles" t="Include">
+            <e p="ObjectNotesTest.txt" t="Include" />
+            <e p="UnityTest.txt" t="Include" />
+          </e>
+        </e>
+        <e p="SceneSelect.cs" t="Include" />
         <e p="Shared" t="Include">
           <e p="Ramps" t="Include">
             <e p="Editor" t="Include">
@@ -196,6 +211,8 @@
             <e p="Readme.cs" t="Include" />
           </e>
         </e>
+        <e p="UIWorldDetect.cs" t="Include" />
+        <e p="WorldCanvasMenu.cs" t="Include" />
       </e>
       <e p="Library" t="ExcludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />

@@ -2,12 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * To Add:
+ * The ability to raise and lower a pillar
+ * Anim when pressed
+ * Sound pressed
+ * (on Pillars) Sound when moving
+ * Indication that button was pressed.
+ *
+ * Add the ability to change "Type"(button or trigger) in the inspector
+ */
 public class PillarButton : MonoBehaviour
 {
 
 	public List<PillarScript> pillarsToActivate;
 
 	public bool amPressed;
+	public bool amTriggered;
 	
 	// Use this for initialization
 	void Start () {
@@ -16,7 +27,7 @@ public class PillarButton : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-		if (amPressed)
+		if (amPressed || amTriggered)
 		{
 			ActivatePillars();
 		}
@@ -32,5 +43,11 @@ public class PillarButton : MonoBehaviour
 				pillarsToActivate[i].amActivated = true;
 			}
 		}
+	}
+	
+	//For the trigger
+	private void OnTriggerEnter(Collider other)
+	{
+		amTriggered = true;
 	}
 }

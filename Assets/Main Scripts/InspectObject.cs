@@ -35,6 +35,7 @@ public class InspectObject : MonoBehaviour
     [Header("Modes: ")]
     [Space(2)]
     public bool inspectionMode;
+    public bool interactingWithCanvas;
     public bool holdingMode;
     [Space(10)]
     
@@ -93,6 +94,12 @@ public class InspectObject : MonoBehaviour
         {
             PickupObject();
         }
+	    
+	    //temp bugs to fix
+	    if (interactingWithCanvas && Input.GetKeyDown(interactionKey))
+	    {
+	        exitCanvas();
+	    }
 	}
  
     // (REWRITE!) Picking up the item and entering "Inspection Mode"
@@ -115,6 +122,8 @@ public class InspectObject : MonoBehaviour
                 //temp
                 PillarButton button = hit.collider.GetComponent<PillarButton>();
                 LightOrbScript orb = hit.collider.GetComponent<LightOrbScript>();
+                WorldCanvasMenu canvas = hit.collider.GetComponent<WorldCanvasMenu>();
+                MakeUIElement makeUiElement = hit.collider.GetComponent<MakeUIElement>();
                 
                 
                 Debug.DrawRay(ray.origin, ray.direction * 100, Color.green); // Drawing ray
@@ -138,10 +147,18 @@ public class InspectObject : MonoBehaviour
                 {
                     button.amPressed = true;
                 }
-
                 if (orb != null && orb.objPlaced)
                 {
                     orb.transform.Rotate(90,0,0);
+                }
+                if (canvas != null)
+                {
+                    CanvasInteraction();
+                }
+
+                if (makeUiElement != null)
+                {
+                    makeUiElement.CreateUIElement();
                 }
             }
         }
@@ -190,6 +207,29 @@ public class InspectObject : MonoBehaviour
             }
 
         }   
+    }
+
+    public void CanvasInteraction()
+    {
+        interactingWithCanvas = true;
+        
+        // Lock Mouse Look
+        rigidbodyFirstPersonController.enabled = false;
+            
+        // Unlock Mouse cursor
+        rigidbodyFirstPersonController.mouseLook.SetCursorLock(false);     
+    }
+
+    public void exitCanvas()
+    {
+        
+            interactingWithCanvas = false;
+        
+            // Lock Mouse Look
+            rigidbodyFirstPersonController.enabled = true;
+            
+            // Unlock Mouse cursor
+            rigidbodyFirstPersonController.mouseLook.SetCursorLock(true);
     }
     
     // Add to HoldItem()

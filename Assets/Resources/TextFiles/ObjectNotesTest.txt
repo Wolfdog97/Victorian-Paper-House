@@ -1,0 +1,2 @@
+This is an object.
+It has a name and it does a thing. Maybe.
