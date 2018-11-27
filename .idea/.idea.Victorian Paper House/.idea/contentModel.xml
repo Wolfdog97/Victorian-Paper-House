@@ -11,7 +11,7 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="_Avery" t="Include">
-          <e p="TesterScript.cs" t="Include" />
+          <e p="UnityTest.txt" t="Include" />
         </e>
         <e p="_Shakar" t="Include">
           <e p="Scripts" t="Include">
@@ -43,19 +43,23 @@
             </e>
           </e>
         </e>
-        <e p="LevelSelect.cs" t="Include" />
         <e p="Main Scripts" t="Include">
+          <e p="AudioManager.cs" t="Include" />
           <e p="ContactDestroy.cs" t="Include" />
           <e p="ExposureScripts" t="Include">
             <e p="LightOrbScript.cs" t="Include" />
             <e p="PillarButton.cs" t="Include" />
             <e p="PillarScript.cs" t="Include" />
+            <e p="PopUpNotesScript.cs" t="Include" />
           </e>
           <e p="GameManager.cs" t="Include" />
           <e p="GazeController.cs" t="Include" />
           <e p="InspectObject.cs" t="Include" />
+          <e p="LevelSelect.cs" t="Include" />
           <e p="MainMenu.cs" t="Include" />
+          <e p="MakeUIElement.cs" t="Include" />
           <e p="Movable.cs" t="Include" />
+          <e p="NotesText.cs" t="Include" />
           <e p="PauseMenu.cs" t="Include" />
           <e p="Pickupable.cs" t="Include" />
           <e p="PickupObject.cs" t="Include" />
@@ -64,18 +68,22 @@
           <e p="PuzzleConditional.cs" t="Include" />
           <e p="PuzzleManager.cs" t="Include" />
           <e p="ReticleController.cs" t="Include" />
+          <e p="SceneSelect.cs" t="Include" />
           <e p="ShuffleBag.cs" t="Include" />
           <e p="SwapableObject.cs" t="Include" />
+          <e p="TeaCup.cs" t="Include" />
+          <e p="TeaCupPuzzleChecker.cs" t="Include" />
+          <e p="Teleporter.cs" t="Include" />
+          <e p="TesterScript.cs" t="Include" />
+          <e p="UIWorldDetect.cs" t="Include" />
         </e>
-        <e p="MakeUIElement.cs" t="Include" />
-        <e p="NotesText.cs" t="Include" />
         <e p="Resources" t="Include">
           <e p="TextFiles" t="Include">
+            <e p="ActivatorNote.txt" t="Include" />
             <e p="ObjectNotesTest.txt" t="Include" />
             <e p="UnityTest.txt" t="Include" />
           </e>
         </e>
-        <e p="SceneSelect.cs" t="Include" />
         <e p="Shared" t="Include">
           <e p="Ramps" t="Include">
             <e p="Editor" t="Include">
@@ -175,9 +183,6 @@
             <e p="WaypointProgressTracker.cs" t="Include" />
           </e>
         </e>
-        <e p="TeaCup.cs" t="Include" />
-        <e p="TeaCupPuzzleChecker.cs" t="Include" />
-        <e p="Teleporter.cs" t="Include" />
         <e p="TextMesh Pro" t="Include">
           <e p="Resources" t="Include">
             <e p="LineBreaking Following Characters.txt" t="Include" />
@@ -211,7 +216,6 @@
             <e p="Readme.cs" t="Include" />
           </e>
         </e>
-        <e p="UIWorldDetect.cs" t="Include" />
         <e p="WorldCanvasMenu.cs" t="Include" />
       </e>
       <e p="Library" t="ExcludeRecursive" />

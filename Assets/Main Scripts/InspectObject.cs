@@ -158,7 +158,14 @@ public class InspectObject : MonoBehaviour
 
                 if (makeUiElement != null)
                 {
-                    makeUiElement.CreateUIElement();
+                    if (!makeUiElement.elementActive)
+                    {
+                       makeUiElement.EnableUI();
+                    }
+                    else
+                    {
+                        makeUiElement.DisableUI();
+                    }
                 }
             }
         }

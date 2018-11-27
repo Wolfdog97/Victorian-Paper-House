@@ -1,0 +1,10 @@
+This is the first implementation of the " designer's notes" system.
+
+To-Do:
+* Fix format
+* Add as pop up for objects
+* Make it look a little better
+* Many QoL changes
+* Add mousepointer stuff to a function
+* Get Prefabs/instances in order
+* Make a CheckList of things to finish Wed

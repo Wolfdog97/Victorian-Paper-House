@@ -10,7 +10,10 @@ public class MakeUIElement : MonoBehaviour, IPointerClickHandler
 	[SerializeField] private GameObject uiToInstantiate;
 	public Vector3 offset = new Vector3(0,0,0);
 	public bool elementActive;
+
+	public GameObject uiToEnable;
 	
+	// not used
 	public void OnPointerClick(PointerEventData eventData)
 	{
 		Vector3 ScreenPosition = new Vector3(eventData.position.x, eventData.position.y, 
@@ -34,5 +37,16 @@ public class MakeUIElement : MonoBehaviour, IPointerClickHandler
 			_clone.transform.SetParent(transform);
 			elementActive = true;
 		}
+	}
+
+	public void EnableUI()
+	{
+		uiToEnable.SetActive(true);
+		elementActive = true;
+	}
+	public void DisableUI()
+	{
+		uiToEnable.SetActive(false);
+		elementActive = false;
 	}
 }
