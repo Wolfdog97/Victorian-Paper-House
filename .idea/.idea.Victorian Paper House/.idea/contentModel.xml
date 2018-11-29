@@ -48,9 +48,12 @@
           <e p="ContactDestroy.cs" t="Include" />
           <e p="ExposureScripts" t="Include">
             <e p="LightOrbScript.cs" t="Include" />
+            <e p="Orbit.cs" t="Include" />
             <e p="PillarButton.cs" t="Include" />
             <e p="PillarScript.cs" t="Include" />
             <e p="PopUpNotesScript.cs" t="Include" />
+            <e p="Rotation.cs" t="Include" />
+            <e p="Rotators.cs" t="Include" />
           </e>
           <e p="GameManager.cs" t="Include" />
           <e p="GazeController.cs" t="Include" />
@@ -70,6 +73,7 @@
           <e p="ReticleController.cs" t="Include" />
           <e p="SceneSelect.cs" t="Include" />
           <e p="ShuffleBag.cs" t="Include" />
+          <e p="SunRotator.cs" t="Include" />
           <e p="SwapableObject.cs" t="Include" />
           <e p="TeaCup.cs" t="Include" />
           <e p="TeaCupPuzzleChecker.cs" t="Include" />
@@ -81,6 +85,7 @@
           <e p="TextFiles" t="Include">
             <e p="ActivatorNote.txt" t="Include" />
             <e p="ObjectNotesTest.txt" t="Include" />
+            <e p="TextWallNote.txt" t="Include" />
             <e p="UnityTest.txt" t="Include" />
           </e>
         </e>

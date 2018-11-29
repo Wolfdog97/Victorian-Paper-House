@@ -96,7 +96,7 @@ public class InspectObject : MonoBehaviour
         }
 	    
 	    //temp bugs to fix
-	    if (interactingWithCanvas && Input.GetKeyDown(interactionKey))
+	    if (interactingWithCanvas && Input.GetMouseButtonDown(1))
 	    {
 	        exitCanvas();
 	    }
@@ -124,6 +124,7 @@ public class InspectObject : MonoBehaviour
                 LightOrbScript orb = hit.collider.GetComponent<LightOrbScript>();
                 WorldCanvasMenu canvas = hit.collider.GetComponent<WorldCanvasMenu>();
                 MakeUIElement makeUiElement = hit.collider.GetComponent<MakeUIElement>();
+                SunRotator sunDial = hit.collider.GetComponent<SunRotator>();
                 
                 
                 Debug.DrawRay(ray.origin, ray.direction * 100, Color.green); // Drawing ray
@@ -154,6 +155,12 @@ public class InspectObject : MonoBehaviour
                 if (canvas != null)
                 {
                     CanvasInteraction();
+                }
+
+                if (sunDial != null)
+                {
+                    sunDial.amActivated = true;
+                    sunDial.RotateSun();
                 }
 
                 if (makeUiElement != null)
