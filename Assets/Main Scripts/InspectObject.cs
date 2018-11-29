@@ -35,6 +35,7 @@ public class InspectObject : MonoBehaviour
     [Header("Modes: ")]
     [Space(2)]
     public bool inspectionMode;
+    public bool interactingWithCanvas;
     public bool holdingMode;
     [Space(10)]
     
@@ -93,6 +94,12 @@ public class InspectObject : MonoBehaviour
         {
             PickupObject();
         }
+	    
+	    //temp bugs to fix
+	    if (interactingWithCanvas && Input.GetKeyDown(interactionKey))
+	    {
+	        exitCanvas();
+	    }
 	}
  
     // (REWRITE!) Picking up the item and entering "Inspection Mode"
@@ -112,6 +119,13 @@ public class InspectObject : MonoBehaviour
                 //Debug.Log(hit.collider);
 
                 Prop pickupable = hit.collider.GetComponent<Prop>();
+                //temp
+                PillarButton button = hit.collider.GetComponent<PillarButton>();
+                LightOrbScript orb = hit.collider.GetComponent<LightOrbScript>();
+                WorldCanvasMenu canvas = hit.collider.GetComponent<WorldCanvasMenu>();
+                MakeUIElement makeUiElement = hit.collider.GetComponent<MakeUIElement>();
+                
+                
                 Debug.DrawRay(ray.origin, ray.direction * 100, Color.green); // Drawing ray
                 
                 if(pickupable != null && 
@@ -128,6 +142,30 @@ public class InspectObject : MonoBehaviour
                     carriedObject.transform.parent = gameObject.transform;
                     pickupable.GetComponent<Rigidbody>().isKinematic = true;
                     pickupable.amPickedUp = true;
+                }
+                if (button != null)
+                {
+                    button.amPressed = true;
+                }
+                if (orb != null && orb.objPlaced)
+                {
+                    orb.transform.Rotate(90,0,0);
+                }
+                if (canvas != null)
+                {
+                    CanvasInteraction();
+                }
+
+                if (makeUiElement != null)
+                {
+                    if (!makeUiElement.elementActive)
+                    {
+                       makeUiElement.EnableUI();
+                    }
+                    else
+                    {
+                        makeUiElement.DisableUI();
+                    }
                 }
             }
         }
@@ -168,7 +206,37 @@ public class InspectObject : MonoBehaviour
             {
                 SwapObject();
             }
+            
+            //Forgot how this worked, but can be used
+            if (Input.GetMouseButtonDown(1))
+            {
+                RotateItem();
+            }
+
         }   
+    }
+
+    public void CanvasInteraction()
+    {
+        interactingWithCanvas = true;
+        
+        // Lock Mouse Look
+        rigidbodyFirstPersonController.enabled = false;
+            
+        // Unlock Mouse cursor
+        rigidbodyFirstPersonController.mouseLook.SetCursorLock(false);     
+    }
+
+    public void exitCanvas()
+    {
+        
+            interactingWithCanvas = false;
+        
+            // Lock Mouse Look
+            rigidbodyFirstPersonController.enabled = true;
+            
+            // Unlock Mouse cursor
+            rigidbodyFirstPersonController.mouseLook.SetCursorLock(true);
     }
     
     // Add to HoldItem()
@@ -295,6 +363,7 @@ public class InspectObject : MonoBehaviour
                 {
                     carriedObject.transform.position = hit.transform.position;
                     carriedObject.transform.eulerAngles = hit.transform.eulerAngles;
+                    carriedObject.objPlaced = true;
                     
                     DropObject();
                 }

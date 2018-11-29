@@ -1,0 +1,2 @@
+This is an Activator.
+It has a name and it does a thing. Maybe.

@@ -57,8 +57,7 @@ public class ReticleController : MonoBehaviour {
 				}
 				
 				//Switch for other objects 
-				
-				
+		
 			}
 		}
 	}

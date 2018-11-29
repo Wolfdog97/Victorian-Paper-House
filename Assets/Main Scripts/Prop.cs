@@ -17,7 +17,7 @@ public class Prop : Pickupable
 	public GameObject[] tags;
 	[Space(2)] 
 	
-	[Header("Where I can be")]
+	[Header("Where I can be placed")]
 	public List<PlacementLocation> validLocations;
 
 	[Header("Read Only: ")] 
@@ -30,6 +30,7 @@ public class Prop : Pickupable
 	public bool tagsAreActive;
 	public bool printOriginalLocation;
 	public bool printCurrentLocation;
+	public bool objPlaced;
 	
 	// Causes Rotation issue
 	public Vector3 propInspectOffset = new Vector3(0,0,0);
@@ -46,13 +47,13 @@ public class Prop : Pickupable
 	}
 	
 	//Set OG position and rotation
-	private void Start()
+	protected virtual void Start()
 	{
 		_originalPos = transform.position;
 		_originalRot = transform.eulerAngles;
 	}
 
-	void Update()
+	protected virtual void Update()
 	{
 		PrintLocations();
 		ShowTags();

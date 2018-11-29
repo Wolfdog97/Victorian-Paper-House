@@ -8,6 +8,8 @@ public class PlacementLocation : MonoBehaviour
 	public GameObject targetProp;
 	public PuzzleManager pManager;
 	public bool weGood;
+
+	public List<GameObject> targetObjects;
 	
 	
 	// Use this for initialization
@@ -25,6 +27,16 @@ public class PlacementLocation : MonoBehaviour
 		if (propObject == targetProp)
 		{
 			pManager.LocConditionMet();
+		}
+	}
+
+	// incomplete 
+	void CheckListCondition()
+	{
+		foreach (var obj in targetObjects)
+		{
+			CheckCondition(obj);
+			break;
 		}
 	}
 

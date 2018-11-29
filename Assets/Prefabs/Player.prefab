@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114566796636275418}
   m_Layer: 11
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -366,22 +366,26 @@ MonoBehaviour:
   mainCamera: {fileID: 20609022113264256}
   rigidbodyFirstPersonController: {fileID: 114566796636275418}
   holdingGuide: {fileID: 4124655731922086}
+  pickupKey: 101
   holdItemKey: 113
   putBackKey: 98
   swapItemKey: 101
   interactionKey: 102
+  dropObjectKey: 53
   inspectionMode: 0
+  interactingWithCanvas: 0
   holdingMode: 0
   isCarrying: 0
   holdingDistance: 0.15
   smoothing: 10
   rotSmoothing: 5
-  putBackText: Put Back
-  placeHereText: Place
+  inspectDistance: 1
+  carriedObject: {fileID: 0}
   sprtToSwap: {fileID: 21300000, guid: dd4416ed3a73d734298112b4f10ffdaa, type: 3}
   spriteRenderer: {fileID: 0}
   rugtoMove: {fileID: 0}
   newRugLoc: {fileID: 0}
+  objToSwap: {fileID: 0}
 --- !u!124 &124460285173791986
 Behaviour:
   m_ObjectHideFlags: 1
