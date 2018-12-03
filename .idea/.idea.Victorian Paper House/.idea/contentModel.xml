@@ -67,6 +67,7 @@
           <e p="MakeUIElement.cs" t="Include" />
           <e p="Movable.cs" t="Include" />
           <e p="NotesText.cs" t="Include" />
+          <e p="ObjectTrigger.cs" t="Include" />
           <e p="PauseMenu.cs" t="Include" />
           <e p="Pickupable.cs" t="Include" />
           <e p="PickupObject.cs" t="Include" />
@@ -85,6 +86,7 @@
           <e p="TesterScript.cs" t="Include" />
           <e p="UIWorldDetect.cs" t="Include" />
         </e>
+        <e p="Note about Editor Folder.txt" t="Include" />
         <e p="ResetTrigger.cs" t="Include" />
         <e p="Resources" t="Include">
           <e p="TextFiles" t="Include">
