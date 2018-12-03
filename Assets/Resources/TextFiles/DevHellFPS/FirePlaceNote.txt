@@ -1,0 +1,2 @@
+This is a Fireplace.
+It destroys the things you put in it. Sometimes.

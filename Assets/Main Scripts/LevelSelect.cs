@@ -19,4 +19,9 @@ public class LevelSelect : MonoBehaviour {
 	{
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1 );
 	}
+ 
+	public void LoadSceneZero()
+	{
+		SceneManager.LoadScene(0);
+	}
 }
