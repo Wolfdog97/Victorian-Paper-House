@@ -1,0 +1,289 @@
+fileFormatVersion: 2
+guid: 591933a6483154a488a6eac8fbd032bc
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: default
+    100002: //RootNode
+    400000: default
+    400002: //RootNode
+    2100000: Atlas1
+    2100002: Atlas2
+    2100004: Plaster1
+    2100006: Brick
+    2100008: Atlas5
+    2100010: Atlas2_normal_leaf_00074.jpg.001
+    2100012: Wood1
+    2100014: Atlas4
+    2100016: Atlas3
+    2100018: Roof
+    2100020: Carpet1
+    2100022: Tiles
+    2100024: Wall1
+    2100026: Wall2
+    2100028: ceiling
+    2100030: glass
+    2100032: ParkingLot
+    2100034: Tarmac
+    2100036: SVGMat.003
+    2100038: Porch_Transparency
+    2100040: Bathroom1
+    2100042: Decor
+    2100044: Motelsign
+    2100046: None
+    2100048: Material.004
+    2100050: Sink
+    2100052: Parquet1
+    2100054: Material
+    2100056: Curtains
+    2100058: Fabrics
+    2100060: glass.001
+    2100062: Porch
+    2100064: Spotlamp
+    2100066: Car
+    2100068: Atlas2_leaf1
+    2100070: Fabrics_mattress
+    2100072: Bathroom2
+    2100074: Material.002
+    2100076: Armchair
+    2300000: default
+    3300000: default
+    4300000: default
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Armchair
+    second: {fileID: 2100000, guid: 8fac74644a0ab4b1585afcf8ed1b0c1a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Atlas1
+    second: {fileID: 2100000, guid: fbded80fb5a7343489298c5bd34a12a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Atlas2
+    second: {fileID: 2100000, guid: 0ae7e95b7492f4b7d946664b7840eb0d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Atlas2_leaf1
+    second: {fileID: 2100000, guid: 0ae7e95b7492f4b7d946664b7840eb0d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Atlas2_normal_leaf_00074.jpg.001
+    second: {fileID: 2100000, guid: 0ae7e95b7492f4b7d946664b7840eb0d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Atlas3
+    second: {fileID: 2100000, guid: 96144d2234ece4e0b9f1b249f74fabeb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Atlas4
+    second: {fileID: 2100000, guid: 9d3f35ef8c4a84be981da3eff21a39c1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Atlas5
+    second: {fileID: 2100000, guid: dba61f40585364213a6d292ddd16a233, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bathroom1
+    second: {fileID: 2100000, guid: a2832a3b8ed4b421a8de286ec3c73cc3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bathroom2
+    second: {fileID: 2100000, guid: 2a684955db1a04102b4cfe04cb759adf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Brick
+    second: {fileID: 2100000, guid: 9cd8c488759734c36ab3661af4893630, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Car
+    second: {fileID: 2100000, guid: 2e80185bf3d47418991b8debc3b5e590, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Carpet1
+    second: {fileID: 2100000, guid: d2c7c5b5a241948bda8b5ed921250fde, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Curtains
+    second: {fileID: 2100000, guid: f171f47f1f4fb4abeaefbe0c48dd9c3f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Decor
+    second: {fileID: 2100000, guid: 32c36f76203e94b0eb4f6d629a3e2b0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Fabrics
+    second: {fileID: 2100000, guid: 7a6e6218d23dc4928a4ac570591d5321, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Motelsign
+    second: {fileID: 2100000, guid: d57cd7ccb5f4942cc815f036fdac126f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ParkingLot
+    second: {fileID: 2100000, guid: 847065768a13946ecb67b91e60b5d5b4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plaster1
+    second: {fileID: 2100000, guid: 1f7a8b27e9d214ef8a2a3e5fd274a1a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Porch
+    second: {fileID: 2100000, guid: 97aa84b2d31ac42b88415d7589b3f5b6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Porch_Transparency
+    second: {fileID: 2100000, guid: ba34d22742d654b47835282750d21eed, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Roof
+    second: {fileID: 2100000, guid: fedbb423c877348f497f30b31b6a69d6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sink
+    second: {fileID: 2100000, guid: 7443dd224e446428aa57866bd34b0f0c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Spotlamp
+    second: {fileID: 2100000, guid: 31371b825a37a482791f49e1f9cf59d9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Tiles
+    second: {fileID: 2100000, guid: c41c41c91128e4cec92f0f14adbb79ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall1
+    second: {fileID: 2100000, guid: 69d495d352e17420a8b65491dd8b8894, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wall2
+    second: {fileID: 2100000, guid: 66eddb1ffd4c241ad965f4b2f8d786c2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood1
+    second: {fileID: 2100000, guid: 73b05aeadea204378a3c2f8aa85d98d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ceiling
+    second: {fileID: 2100000, guid: ed1b4607c95ee401d97ccdc82094842b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass
+    second: {fileID: 2100000, guid: 513852b9347cd4bfa978d4f988912c3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: glass.001
+    second: {fileID: 2100000, guid: 513852b9347cd4bfa978d4f988912c3b, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

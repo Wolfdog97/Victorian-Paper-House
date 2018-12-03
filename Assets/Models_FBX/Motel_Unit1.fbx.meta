@@ -1,0 +1,154 @@
+fileFormatVersion: 2
+guid: c3fd48d0a59841f4eb32026dff11e202
+timeCreated: 1458650886
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: bathroomdoor_LP
+    100002: bifold_LP
+    100004: bifold_LP.001
+    100006: bifold_LP.002
+    100008: bifold_LP.003
+    100010: Cube.009
+    100012: Door
+    100014: interior
+    100016: //RootNode
+    100018: Plane.006
+    100020: trim_LP
+    100022: Window.L
+    100024: Window.R
+    100026: Locker_Shelf
+    100028: Rockbed
+    100030: trim
+    100032: Rockbed.001
+    400000: bathroomdoor_LP
+    400002: bifold_LP
+    400004: bifold_LP.001
+    400006: bifold_LP.002
+    400008: bifold_LP.003
+    400010: Cube.009
+    400012: Door
+    400014: interior
+    400016: //RootNode
+    400018: Plane.006
+    400020: trim_LP
+    400022: Window.L
+    400024: Window.R
+    400026: Locker_Shelf
+    400028: Rockbed
+    400030: trim
+    400032: Rockbed.001
+    2300000: bathroomdoor_LP
+    2300002: bifold_LP
+    2300004: bifold_LP.001
+    2300006: bifold_LP.002
+    2300008: bifold_LP.003
+    2300010: Cube.009
+    2300012: Door
+    2300014: interior
+    2300016: //RootNode
+    2300018: Plane.006
+    2300020: trim_LP
+    2300022: Window.L
+    2300024: Window.R
+    2300026: Locker_Shelf
+    2300028: Rockbed
+    2300030: trim
+    2300032: Rockbed.001
+    3300000: bathroomdoor_LP
+    3300002: bifold_LP
+    3300004: bifold_LP.001
+    3300006: bifold_LP.002
+    3300008: bifold_LP.003
+    3300010: Cube.009
+    3300012: Door
+    3300014: interior
+    3300016: //RootNode
+    3300018: Plane.006
+    3300020: trim_LP
+    3300022: Window.L
+    3300024: Window.R
+    3300026: Locker_Shelf
+    3300028: Rockbed
+    3300030: trim
+    3300032: Rockbed.001
+    4300000: Motel_Unit1
+    4300002: Plane.006
+    4300004: Door
+    4300006: Window.R
+    4300008: Window.L
+    4300010: interior
+    4300012: bifold_LP.003
+    4300014: bifold_LP.002
+    4300016: bifold_LP.001
+    4300018: bifold_LP
+    4300020: Cube.009
+    4300022: trim_LP
+    4300024: bathroomdoor_LP
+    4300026: Rockbed
+    4300028: Locker_Shelf
+    4300030: trim
+    4300032: Rockbed.001
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
