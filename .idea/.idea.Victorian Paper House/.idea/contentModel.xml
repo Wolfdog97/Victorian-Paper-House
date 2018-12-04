@@ -14,7 +14,6 @@
           <e p="A_Scenes" t="Include">
             <e p="ScrollingText.cs" t="Include" />
           </e>
-          <e p="UnityTest.txt" t="Include" />
         </e>
         <e p="_Shakar" t="Include">
           <e p="Scripts" t="Include">
@@ -91,15 +90,24 @@
         <e p="Resources" t="Include">
           <e p="TextFiles" t="Include">
             <e p="ActivatorNote.txt" t="Include" />
+            <e p="Controls.txt" t="Include" />
             <e p="DevHellFPS" t="Include">
               <e p="ActivatorNote 1.txt" t="Include" />
               <e p="FirePlaceNote.txt" t="Include" />
               <e p="FTCNotes.txt" t="Include" />
+              <e p="SceneNotes_DevHell.txt" t="Include" />
+            </e>
+            <e p="Echoes_S1" t="Include">
+              <e p="SN_Echoes_S1.txt" t="Include" />
+            </e>
+            <e p="Exposure_S1" t="Include">
+              <e p="SN_Exposure_S1.txt" t="Include" />
             </e>
             <e p="ObjectNotesTest.txt" t="Include" />
             <e p="TextWallNote.txt" t="Include" />
             <e p="UnityTest.txt" t="Include" />
           </e>
+          <e p="UnityTest.txt" t="Include" />
         </e>
         <e p="Shared" t="Include">
           <e p="Ramps" t="Include">

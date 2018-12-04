@@ -215,9 +215,9 @@ public class InspectObject : MonoBehaviour
             }
             
             //Forgot how this worked, but can be used
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(1) || Input.GetKeyDown(dropObjectKey))
             {
-                RotateItem();
+                DropObject();
             }
 
         }   
@@ -276,7 +276,7 @@ public class InspectObject : MonoBehaviour
 
     void CheckDrop()
     {
-        if (Input.GetKeyDown(dropObjectKey) && holdingMode)
+        if ((Input.GetKeyDown(dropObjectKey) || Input.GetMouseButtonDown(1)) && holdingMode)
         {
             DropObject();
         }

@@ -1,0 +1,6 @@
+Controls:
+WASD to move
+'SPACE' to jump
+LMB or 'F' to interact with an object
+RMB or 'TAB' to drop an object
+Q to carry an object

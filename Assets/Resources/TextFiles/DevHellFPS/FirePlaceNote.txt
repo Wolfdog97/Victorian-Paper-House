@@ -1,2 +1,2 @@
-This is a Fireplace.
+Trying to make a paper fireplace.
 It destroys the things you put in it. Sometimes.

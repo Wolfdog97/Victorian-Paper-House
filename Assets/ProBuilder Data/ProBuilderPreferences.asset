@@ -12,8 +12,15 @@ MonoBehaviour:
   m_Name: ProBuilderPreferences
   m_EditorClassIdentifier: 
   m_Bool_keys:
+  - pbStripProBuilderOnBuild
+  - pbDisableAutoUV2Generation
+  - pbForceConvex
+  - pbMeshesAreAssets
   - pbIconGUI
   m_Int_keys:
+  - pbDefaultCollider
+  - pbShadowCastingMode
+  - pbDefaultStaticFlags
   - pbHandleAlignment
   - pbDefaultEditLevel
   - pbDefaultSelectionMode
@@ -23,12 +30,14 @@ MonoBehaviour:
   - pbEditorScroll.y
   m_String_keys: []
   m_Color_keys: []
-  m_Material_keys: []
-  m_Bool_values: 00
-  m_Int_values: 00000000000000000200000001000000
+  m_Material_keys:
+  - pbDefaultMaterial
+  m_Bool_values: 0100000000
+  m_Int_values: 02000000020000000000000000000000000000000200000001000000
   m_Float_values:
   - 0
   - 0
   m_String_values: []
   m_Color_values: []
-  m_Material_values: []
+  m_Material_values:
+  - {fileID: 2100000, guid: f8af10ae2c674e569782e57b09c76a13, type: 2}
