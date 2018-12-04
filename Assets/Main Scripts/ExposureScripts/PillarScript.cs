@@ -12,7 +12,7 @@ public class PillarScript : MonoBehaviour
 
 	public GameObject pillarObject;
 	
-	[Range(1f,20f)] public float smoothing = 5;
+	[Range(0f,20f)] public float smoothing = 5;
 	
 	protected Vector3 _originalPos;
 	protected Vector3 _originalRot;

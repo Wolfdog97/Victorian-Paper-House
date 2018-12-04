@@ -272,6 +272,12 @@ public class InspectObject : MonoBehaviour
             //_inspectItemRot *= Quaternion.Euler(0,0,0);
             obj.transform.localRotation = holdingGuide.transform.localRotation;
         }
+
+        if (Input.GetKeyDown(pickupKey))
+        {
+            holdingMode = false;
+            Inspect(carriedObject);
+        }
     }
 
     void CheckDrop()

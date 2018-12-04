@@ -13,6 +13,8 @@ public class PopUpNotesScript : MonoBehaviour
 	private GameObject _target;
 	[Range(1,10)]public int damping = 5;
 
+	public bool amLooking = true;
+
 	void Start()
 	{
 		_target = GameObject.FindWithTag("Player");
@@ -21,7 +23,10 @@ public class PopUpNotesScript : MonoBehaviour
 	void Update () 
 	{
 		//transform.LookAt(_target.transform);
-		LookAtPlayer();
+		if (amLooking)
+		{
+			LookAtPlayer();
+		}
 	}
 
 	void LookAtPlayer()

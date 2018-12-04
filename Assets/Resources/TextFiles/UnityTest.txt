@@ -7,5 +7,5 @@ To-Do by Wednesday night:
 * Make it look a little better
 * Many QoL changes
 * Add mousepointer stuff to a function
-* Finish exposure puzzle_1
+* Fix interaction mode bugs(Looking up & pushing)
 * Intergrate all finished systems for playtest build

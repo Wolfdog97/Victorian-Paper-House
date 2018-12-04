@@ -75,6 +75,8 @@ public class Prop : Pickupable
 				{
 					// Enable all of the tags
 					tags[i].SetActive(true);
+					
+					Debug.Log(name + " is showing tabs");
 				}
 			}
 			else

@@ -4,3 +4,4 @@ WASD to move
 LMB or 'F' to interact with an object
 RMB or 'TAB' to drop an object
 Q to carry an object
+'F' while carrying to inspect an object
