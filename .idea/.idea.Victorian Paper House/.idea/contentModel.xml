@@ -10,11 +10,6 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="_Avery" t="Include">
-          <e p="A_Scenes" t="Include">
-            <e p="ScrollingText.cs" t="Include" />
-          </e>
-        </e>
         <e p="_Shakar" t="Include">
           <e p="Scripts" t="Include">
             <e p="AddTextToObjects.cs" t="Include" />
@@ -48,7 +43,9 @@
         </e>
         <e p="Main Scripts" t="Include">
           <e p="AudioManager.cs" t="Include" />
-          <e p="ContactDestroy.cs" t="Include" />
+          <e p="EchoesScripts" t="Include">
+            <e p="SunRotator.cs" t="Include" />
+          </e>
           <e p="ExposureScripts" t="Include">
             <e p="LightOrbScript.cs" t="Include" />
             <e p="Orbit.cs" t="Include" />
@@ -72,18 +69,21 @@
           <e p="PickupObject.cs" t="Include" />
           <e p="PlacementLocation.cs" t="Include" />
           <e p="Prop.cs" t="Include" />
-          <e p="PuzzleConditional.cs" t="Include" />
-          <e p="PuzzleManager.cs" t="Include" />
           <e p="ReticleController.cs" t="Include" />
           <e p="SceneSelect.cs" t="Include" />
+          <e p="ScrollingText.cs" t="Include" />
           <e p="ShuffleBag.cs" t="Include" />
-          <e p="SunRotator.cs" t="Include" />
           <e p="SwapableObject.cs" t="Include" />
-          <e p="TeaCup.cs" t="Include" />
-          <e p="TeaCupPuzzleChecker.cs" t="Include" />
           <e p="Teleporter.cs" t="Include" />
           <e p="TesterScript.cs" t="Include" />
           <e p="UIWorldDetect.cs" t="Include" />
+          <e p="VMGScripts" t="Include">
+            <e p="ContactDestroy.cs" t="Include" />
+            <e p="PuzzleConditional.cs" t="Include" />
+            <e p="PuzzleManager.cs" t="Include" />
+            <e p="TeaCup.cs" t="Include" />
+            <e p="TeaCupPuzzleChecker.cs" t="Include" />
+          </e>
         </e>
         <e p="Note about Editor Folder.txt" t="Include" />
         <e p="ResetTrigger.cs" t="Include" />

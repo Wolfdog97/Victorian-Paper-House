@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null;
     
-    public KeyCode restartKey = KeyCode.R;
+    public KeyCode restartGameKey = KeyCode.R;
+    public KeyCode restartSceneKey = KeyCode.T;
 
 	// Use this for initialization
 	void Awake () {
@@ -26,16 +27,26 @@ public class GameManager : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(restartKey))
+        if (Input.GetKeyDown(restartGameKey))
         {
             RestartGame();
+        }
+
+        if (Input.GetKeyDown(restartSceneKey))
+        {
+            RestartScene();
         }
     }
 
     public void RestartGame()
     {
         SceneManager.LoadScene(0, LoadSceneMode.Single);
-        Debug.Log("Restarting Game");
+        Debug.Log("Restarting Game... ");
+    }
+    public void RestartScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Debug.Log("Restarting This Scene...");
     }
 
     public void endGame()
