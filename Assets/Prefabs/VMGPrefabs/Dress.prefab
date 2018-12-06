@@ -184,10 +184,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf77717b6538e724f8db37803483d918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalPos: {x: 0, y: 0, z: 0}
-  originalRot: {x: 0, y: 0, z: 0}
+  displayName: default
+  player: {fileID: 0}
+  tags: []
+  validLocations: []
+  _originalPos: {x: 0, y: 0, z: 0}
+  _originalRot: {x: 0, y: 0, z: 0}
   amPickedUp: 0
-  printLoc: 0
+  tagsAreActive: 0
+  printOriginalLocation: 0
+  printCurrentLocation: 0
+  objPlaced: 0
+  propInspectOffset: {x: 0, y: 0, z: 0}
 --- !u!212 &212326050419898264
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -679,6 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf77717b6538e724f8db37803483d918, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayName: default
   player: {fileID: 0}
   tags:
   - {fileID: 1748372951913722}
@@ -692,6 +693,8 @@ MonoBehaviour:
   tagsAreActive: 0
   printOriginalLocation: 0
   printCurrentLocation: 0
+  objPlaced: 0
+  propInspectOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &114048023367837102
 MonoBehaviour:
   m_ObjectHideFlags: 1
