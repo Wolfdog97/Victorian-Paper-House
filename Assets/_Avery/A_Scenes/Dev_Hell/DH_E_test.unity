@@ -716,7 +716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 901c6247f5402104a92c970c2f36f710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theta: 3
+  theta: 10
 --- !u!43 &183815396
 Mesh:
   m_ObjectHideFlags: 0

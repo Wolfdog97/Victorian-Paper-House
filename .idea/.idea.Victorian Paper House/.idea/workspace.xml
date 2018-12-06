@@ -12,7 +12,7 @@
     <session id="-115558223">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="9" />
           <entry key="project.open.time.134" value="1" />
           <entry key="project.open.time.369" value="1" />
           <entry key="project.open.time.50" value="1" />
@@ -88,8 +88,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Main Scripts/ExposureScripts/PopUpNotesScript.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="27" column="27" lean-forward="true" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+            <state relative-caret-position="437">
+              <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
               <folding>
                 <marker date="1543943130242" expanded="false" signature="6:78" ph="..." />
                 <marker date="1543943130242" expanded="true" signature="80:131" ph="/* Issues: ... */" />
@@ -391,9 +391,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="951" />
-    <option name="width" value="975" />
-    <option name="height" value="1088" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1041" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectView">
     <navigator currentView="UnityExplorer" proportions="" version="1">
@@ -488,12 +489,12 @@
       <workItem from="1542836691451" duration="3185000" />
       <workItem from="1543177041087" duration="32931000" />
       <workItem from="1543346873705" duration="11672000" />
-      <workItem from="1543861823850" duration="10614000" />
+      <workItem from="1543861823850" duration="11212000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="234741000" />
+    <option name="totallyTimeSpent" value="235339000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -506,7 +507,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1753" height="993" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14572272" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1011,8 +1011,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Main Scripts/ExposureScripts/PopUpNotesScript.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="27" column="27" lean-forward="true" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+        <state relative-caret-position="437">
+          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
           <folding>
             <marker date="1543943130242" expanded="false" signature="6:78" ph="..." />
             <marker date="1543943130242" expanded="true" signature="80:131" ph="/* Issues: ... */" />
