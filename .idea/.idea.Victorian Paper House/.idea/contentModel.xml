@@ -205,6 +205,9 @@
         <e p="ResetTrigger.cs" t="Include" />
         <e p="Resources" t="Include">
           <e p="TextFiles" t="Include">
+            <e p="_General" t="Include">
+              <e p="G_TR2.txt" t="Include" />
+            </e>
             <e p="Controls.txt" t="Include" />
             <e p="DefaultNote.txt" t="Include" />
             <e p="DevHellFPS" t="Include">
@@ -212,17 +215,30 @@
               <e p="FirePlaceNote.txt" t="Include" />
               <e p="FTCNotes.txt" t="Include" />
               <e p="SceneNotes_DevHell.txt" t="Include" />
-              <e p="SN_TR1_R1.txt" t="Include" />
             </e>
             <e p="Echoes_S1" t="Include">
               <e p="SN_Echoes_S1.txt" t="Include" />
             </e>
             <e p="Exposure_S1" t="Include">
               <e p="SN_Exposure_S1.txt" t="Include" />
+              <e p="SN_Meddle_S2.txt" t="Include" />
+            </e>
+            <e p="Meddle_S1" t="Include">
+              <e p="SN_Exposure_S1.txt" t="Include" />
             </e>
             <e p="ObjectNotesTest.txt" t="Include" />
+            <e p="TestRoom_1" t="Include">
+              <e p="SN_TR1_R1.txt" t="Include" />
+            </e>
+            <e p="TestRoom_2" t="Include">
+              <e p="ON_PPVRoom.txt" t="Include" />
+              <e p="SN_TR2.txt" t="Include" />
+            </e>
             <e p="TextWallNote.txt" t="Include" />
             <e p="UnityTest.txt" t="Include" />
+            <e p="VMG_RC" t="Include">
+              <e p="SN_RC.txt" t="Include" />
+            </e>
           </e>
           <e p="UnityTest.txt" t="Include" />
         </e>
@@ -242,6 +258,7 @@
             <e p="SimpleCharacterMotor.cs" t="Include" />
           </e>
         </e>
+        <e p="WallScript.cs" t="Include" />
         <e p="WorldCanvasMenu.cs" t="Include" />
       </e>
       <e p="Library" t="ExcludeRecursive" />

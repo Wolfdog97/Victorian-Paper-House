@@ -1,0 +1,3 @@
+SoloTestRoomNotes:
+* Should I keep everything in the same scene? It kind of worked last time
+* Teleporters? Rooms? Hallways? Am I wasting my time with this set up?

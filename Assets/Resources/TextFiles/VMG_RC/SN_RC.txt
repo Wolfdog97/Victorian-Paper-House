@@ -1,0 +1,3 @@
+Victorian notes:
+* Combined some of the WIP rooms, so its a little easier to compare them.
+* I hope this is easier than switching back and forth just to check things.
