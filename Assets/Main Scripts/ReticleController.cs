@@ -45,19 +45,26 @@ public class ReticleController : MonoBehaviour {
 				// if the ray hits an object with a tag, change the text
 				
 				Prop _prop = _hit.collider.GetComponent<Prop>();
+				MakeUIElement noteMaker = _hit.collider.GetComponent<MakeUIElement>();
+				
 				if (_prop != null)
 				{
 					tMPGUI.text = _prop.displayName;
 					reticle.SetActive(false);
 				}
-				else
+				else if(noteMaker != null)
 				{
-					tMPGUI.text = "";
-					reticle.SetActive(true);
+					tMPGUI.text = "?";
+					reticle.SetActive(false);
 				}
 				
 				//Switch for other objects 
 		
+			}
+			else
+			{
+				tMPGUI.text = "";
+				reticle.SetActive(true);
 			}
 		}
 	}

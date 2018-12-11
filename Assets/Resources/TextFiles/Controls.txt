@@ -3,5 +3,8 @@ WASD to move
 'SPACE' to jump
 LMB or 'F' to interact with an object
 RMB or 'TAB' to drop an object
-Q to carry an object
+'Q' to carry an object
 'F' while carrying to inspect an object
+'R' to restart the scene
+.
+(Mostly the same for all scenes)
