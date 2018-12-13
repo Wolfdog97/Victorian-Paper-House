@@ -2534,7 +2534,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-4896
+  m_Name: pb_Mesh-6623918
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -4240,6 +4240,10 @@ Prefab:
         type: 2}
       propertyPath: m_selectedTriangles.Array.data[3]
       value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711059299154936, guid: a9570cbd80bc39e4cb829b97df931868, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9570cbd80bc39e4cb829b97df931868, type: 2}
@@ -7706,7 +7710,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-4360
+  m_Name: pb_Mesh-6623254
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -12881,7 +12885,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4462099971539712, guid: a9570cbd80bc39e4cb829b97df931868, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.86884594
+      value: -0.53
       objectReference: {fileID: 0}
     - target: {fileID: 4462099971539712, guid: a9570cbd80bc39e4cb829b97df931868, type: 2}
       propertyPath: m_LocalPosition.y

@@ -3469,190 +3469,25 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 114639404378812582, guid: 7a93392b6326e8c459abf8751dc4e97e,
+    - target: {fileID: 114063459474659936, guid: 7a93392b6326e8c459abf8751dc4e97e,
         type: 2}
-      propertyPath: spriteRenderer
+      propertyPath: tMPGUI
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 136025536987888270, guid: 7a93392b6326e8c459abf8751dc4e97e,
+      objectReference: {fileID: 1403741741}
+    - target: {fileID: 114063459474659936, guid: 7a93392b6326e8c459abf8751dc4e97e,
         type: 2}
-      propertyPath: m_Material
+      propertyPath: reticle
       value: 
-      objectReference: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1,
-        type: 2}
-    - target: {fileID: 20609022113264256, guid: 7a93392b6326e8c459abf8751dc4e97e,
-        type: 2}
-      propertyPath: field of view
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 114566796636275418, guid: 7a93392b6326e8c459abf8751dc4e97e,
-        type: 2}
-      propertyPath: advancedSettings.shellOffset
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639404378812582, guid: 7a93392b6326e8c459abf8751dc4e97e,
-        type: 2}
-      propertyPath: controlsPanel
-      value: 
-      objectReference: {fileID: 1782345576}
-    - target: {fileID: 114639404378812582, guid: 7a93392b6326e8c459abf8751dc4e97e,
-        type: 2}
-      propertyPath: controlsText
-      value: 
-      objectReference: {fileID: 1112849356}
-    - target: {fileID: 114639404378812582, guid: 7a93392b6326e8c459abf8751dc4e97e,
-        type: 2}
-      propertyPath: showControls
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639404378812582, guid: 7a93392b6326e8c459abf8751dc4e97e,
-        type: 2}
-      propertyPath: objToSwap
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639404378812582, guid: 7a93392b6326e8c459abf8751dc4e97e,
-        type: 2}
-      propertyPath: dropObjectKey
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639404378812582, guid: 7a93392b6326e8c459abf8751dc4e97e,
-        type: 2}
-      propertyPath: holdItemKey
-      value: 113
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639404378812582, guid: 7a93392b6326e8c459abf8751dc4e97e,
-        type: 2}
-      propertyPath: inspectionMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4124655731922086, guid: 7a93392b6326e8c459abf8751dc4e97e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4124655731922086, guid: 7a93392b6326e8c459abf8751dc4e97e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4124655731922086, guid: 7a93392b6326e8c459abf8751dc4e97e, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 20609022113264256, guid: 7a93392b6326e8c459abf8751dc4e97e,
-        type: 2}
-      propertyPath: m_ForceIntoRT
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1175583483289072, guid: 7a93392b6326e8c459abf8751dc4e97e, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639404378812582, guid: 7a93392b6326e8c459abf8751dc4e97e,
-        type: 2}
-      propertyPath: pickupKey
-      value: 102
-      objectReference: {fileID: 0}
-    - target: {fileID: 114639404378812582, guid: 7a93392b6326e8c459abf8751dc4e97e,
-        type: 2}
-      propertyPath: interactionKey
-      value: 49
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1542079746}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a93392b6326e8c459abf8751dc4e97e, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &480433304 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1221484075222760, guid: 7a93392b6326e8c459abf8751dc4e97e,
-    type: 2}
-  m_PrefabInternal: {fileID: 480433303}
---- !u!20 &480433305 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 20609022113264256, guid: 7a93392b6326e8c459abf8751dc4e97e,
-    type: 2}
-  m_PrefabInternal: {fileID: 480433303}
 --- !u!114 &480433306 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114639404378812582, guid: 7a93392b6326e8c459abf8751dc4e97e,
     type: 2}
   m_PrefabInternal: {fileID: 480433303}
   m_Script: {fileID: 11500000, guid: c38e0bb1e78d8bb458de6a022da3aeea, type: 3}
---- !u!4 &480433307 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4958944758209868, guid: 7a93392b6326e8c459abf8751dc4e97e,
-    type: 2}
-  m_PrefabInternal: {fileID: 480433303}
---- !u!114 &480433308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 480433304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 480433307}
-  volumeLayer:
-    serializedVersion: 2
-    m_Bits: 1024
-  stopNaNPropagation: 1
-  antialiasingMode: 0
-  temporalAntialiasing:
-    jitterSpread: 0.75
-    sharpness: 0.25
-    stationaryBlending: 0.95
-    motionBlending: 0.85
-  subpixelMorphologicalAntialiasing:
-    quality: 2
-  fastApproximateAntialiasing:
-    fastMode: 0
-    keepAlpha: 0
-  fog:
-    enabled: 1
-    excludeSkybox: 1
-  debugLayer:
-    lightMeter:
-      width: 512
-      height: 256
-      showCurves: 1
-    histogram:
-      width: 512
-      height: 256
-      channel: 3
-    waveform:
-      exposure: 0.12
-      height: 256
-    vectorscope:
-      size: 256
-      exposure: 0.12
-    overlaySettings:
-      linearDepth: 0
-      motionColorIntensity: 4
-      motionGridSize: 64
-      colorBlindnessType: 0
-      colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
-  breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
-  m_AfterStackBundles: []
---- !u!114 &480433311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 480433304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3dd6eb5eb615184db08359bba5d7cd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCamera: {fileID: 480433305}
-  rayDistance: 4
-  reticle: {fileID: 1542079746}
-  tMPGUI: {fileID: 1403741741}
 --- !u!1 &492050330
 GameObject:
   m_ObjectHideFlags: 0
@@ -12436,9 +12271,13 @@ Prefab:
     - target: {fileID: 114492849661909758, guid: 8bdf0399e38f42a458b04f2c1ac2d8b5,
         type: 2}
       propertyPath: m_text
-      value: 'Notes: intresting but what can I do with this? Things that only appear
-        when both a light and the dir light are in the correct pos. attach a camera
-        to lights and transision camera when moving lights'
+      value: 'Notes:
+
+        ''9'' to skip puzzle
+
+        intresting but what can I do with this? Things that only appear when both
+        a light and the dir light are in the correct pos. attach a camera to lights
+        and transision camera when moving lights'
       objectReference: {fileID: 0}
     - target: {fileID: 114492849661909758, guid: 8bdf0399e38f42a458b04f2c1ac2d8b5,
         type: 2}
@@ -12449,6 +12288,11 @@ Prefab:
         type: 2}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114996313502816166, guid: 8bdf0399e38f42a458b04f2c1ac2d8b5,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bdf0399e38f42a458b04f2c1ac2d8b5, type: 2}
