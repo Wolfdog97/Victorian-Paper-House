@@ -1,2 +1,4 @@
-This is an Activator.
-It has a name and it does a thing. Maybe.
+Press '9' to activate all pillars
+press '0' to deactivate
+
+I just need to make something better

@@ -46,6 +46,7 @@
           <e p="SceneSelect.cs" t="Include" />
           <e p="ScrollingText.cs" t="Include" />
           <e p="ShuffleBag.cs" t="Include" />
+          <e p="SkyboxCamera.cs" t="Include" />
           <e p="SwapableObject.cs" t="Include" />
           <e p="Teleporter.cs" t="Include" />
           <e p="TesterScript.cs" t="Include" />
@@ -220,6 +221,7 @@
               <e p="SN_Echoes_S1.txt" t="Include" />
             </e>
             <e p="Exposure_S1" t="Include">
+              <e p="GN_E_S1.txt" t="Include" />
               <e p="SN_Exposure_S1.txt" t="Include" />
               <e p="SN_Meddle_S2.txt" t="Include" />
             </e>
@@ -239,6 +241,7 @@
             <e p="VMG_RC" t="Include">
               <e p="SN_RC.txt" t="Include" />
             </e>
+            <e p="WTF.txt" t="Include" />
           </e>
           <e p="UnityTest.txt" t="Include" />
         </e>
